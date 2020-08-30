@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "639076104619",
+    "firebase_url": "https://esmagador-app.firebaseio.com",
+    "project_id": "esmagador-app",
+    "storage_bucket": "esmagador-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639076104619:android:165cf523aa261ffc5fbaee",
+        "android_client_info": {
+          "package_name": "com.docputs.esmagador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639076104619-trdehu8bpqf1h94tk9cl33k9kl6pll2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASKLSUbVr-HQR4_hEyMN38nBkqq305neE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639076104619-trdehu8bpqf1h94tk9cl33k9kl6pll2c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
