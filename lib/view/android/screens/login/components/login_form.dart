@@ -1,42 +1,43 @@
+import 'package:esmagador/view/android/screens/login/bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../widgets/default_button.dart';
 import '../../../../constants.dart';
-import '../../../../size_config.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({
     Key key,
   }) : super(key: key);
 
   @override
+  _LoginFormState createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+
+  String _email;
+  String _password;
+
+  @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
           buildLoginInput(),
           SizedBox(height: 10),
           buildPasswordInput(),
-          SizedBox(height: 20),
-          SizedBox(
-            height: getProportionateScreenHeight(60),
-            width: double.infinity,
-            child: RaisedButton(
-              shape: RoundedRectangleBorder(borderRadius: kBorderRadius),
-              color: kPrimaryColor,
-              onPressed: () {
-                //TODO:
-              },
-              child: Text(
-                'Entrar',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
+          DefaultButton(
+            text: 'Entrar',
+            handler: () {
+              if (_formKey.currentState.validate()) {
+                _formKey.currentState.save();
+                context.bloc<LoginBloc>().tryLogin(_email, _password);
+              }
+            },
           ),
-          SizedBox(height: 20),
         ],
       ),
     );
@@ -53,6 +54,9 @@ class LoginForm extends StatelessWidget {
         hintText: 'E-mail',
         border: OutlineInputBorder(borderRadius: kBorderRadius),
       ),
+      onSaved: (newValue) {
+        _email = newValue;
+      },
     );
   }
 
@@ -68,6 +72,9 @@ class LoginForm extends StatelessWidget {
         hintText: 'Senha',
         border: OutlineInputBorder(borderRadius: kBorderRadius),
       ),
+      onSaved: (newValue) {
+        _password = newValue;
+      },
     );
   }
 }
