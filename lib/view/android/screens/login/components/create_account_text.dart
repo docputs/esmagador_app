@@ -21,7 +21,7 @@ class _CreateAccountTextState extends State<CreateAccountText> {
     super.initState();
     _tapGestureRecognizer = TapGestureRecognizer()
       ..onTap = () {
-        Navigator.of(context).popAndPushNamed(SignUpScreen.routeName);
+        Navigator.of(context).pushReplacementNamed(SignUpScreen.routeName);
       };
   }
 

@@ -6,11 +6,13 @@ import 'create_account_text.dart';
 import 'login_form.dart';
 
 class Body extends StatelessWidget {
+  
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Text(
@@ -23,7 +25,7 @@ class Body extends StatelessWidget {
             SizedBox(height: 20),
             Image.asset(
               'assets/images/Ativo6.png',
-              height: getProportionateScreenHeight(150),
+              height: getProportionateScreenHeight(150.0),
             ),
             SizedBox(height: 30),
             LoginForm(),
@@ -34,8 +36,7 @@ class Body extends StatelessWidget {
             OutlineButton(
               highlightedBorderColor: kPrimaryColor,
               textColor: kPrimaryColor,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               borderSide: BorderSide(color: kPrimaryColor),
               child: Text(
                 'Entrar com o Google',
@@ -68,4 +69,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-

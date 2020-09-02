@@ -4,15 +4,15 @@ import 'package:bloc/bloc.dart';
 import 'package:esmagador/data/models/authenticated_user.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../../../../data/models/user_repository.dart';
+import '../../../../../data/user_repository.dart';
 
 part 'signup_event.dart';
 part 'signup_state.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
-  final UserRepository _repository;
+  final UserRepository _userRepository;
 
-  SignupBloc(this._repository) : super(SignupInitial());
+  SignupBloc(this._userRepository) : super(SignupInitial());
 
   @override
   Stream<SignupState> mapEventToState(
@@ -22,8 +22,10 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       yield SignupLoading();
 
       try {
-        final response = await _repository.createNewAccount(
-            email: event.email, password: event.password);
+        final response = await _userRepository.createNewAccount(
+            displayName: event.displayName,
+            email: event.email,
+            password: event.password);
         yield SignupSuccessful(response);
       } catch (error) {
         yield SignupError(error.message);

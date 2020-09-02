@@ -78,7 +78,8 @@ class _BodyState extends State<Body> {
                     shape: RoundedRectangleBorder(borderRadius: kBorderRadius),
                     color: kPrimaryColor,
                     onPressed: () {
-                      Navigator.of(context).pushNamed(LoginScreen.routeName);
+                      Navigator.of(context)
+                          .pushReplacementNamed(LoginScreen.routeName);
                     },
                     child: Text(
                       'Continuar',

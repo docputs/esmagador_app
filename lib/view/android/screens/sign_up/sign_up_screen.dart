@@ -1,4 +1,4 @@
-import 'package:esmagador/data/models/user_repository.dart';
+import 'package:esmagador/data/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,7 +13,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignupBloc(FirebaseAuthRepository()),
+      create: (context) => SignupBloc(FirebaseUserRepository()),
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(

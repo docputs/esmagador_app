@@ -1,6 +1,5 @@
-import 'package:esmagador/view/android/screens/login/bloc/login_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../widgets/default_button.dart';
 import '../../../../constants.dart';
@@ -20,6 +19,20 @@ class _LoginFormState extends State<LoginForm> {
   String _email;
   String _password;
 
+  void signIn() async {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      try {
+        await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: _email, password: _password);
+      } catch (error) {
+        Scaffold.of(context).showSnackBar(
+          SnackBar(content: Text(error.message)),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -31,12 +44,7 @@ class _LoginFormState extends State<LoginForm> {
           buildPasswordInput(),
           DefaultButton(
             text: 'Entrar',
-            handler: () {
-              if (_formKey.currentState.validate()) {
-                _formKey.currentState.save();
-                context.bloc<LoginBloc>().tryLogin(_email, _password);
-              }
-            },
+            handler: signIn,
           ),
         ],
       ),
