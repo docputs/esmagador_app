@@ -7,13 +7,7 @@ class LoginInitial extends LoginState {}
 
 class LoginLoading extends LoginState {}
 
-class LoginSuccessful extends LoginState {
-  final String email;
-
-  LoginSuccessful({
-    @required this.email,
-  });
-}
+class LoginSuccessful extends LoginState {}
 
 class LoginError extends LoginState {
   final String errorMessage;

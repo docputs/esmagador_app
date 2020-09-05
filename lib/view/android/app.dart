@@ -1,7 +1,11 @@
+import 'package:esmagador/data/models/authenticated_user.dart';
+import 'package:esmagador/data/user_repository.dart';
 import 'package:esmagador/view/android/page_manager.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:esmagador/view/android/screens/login/bloc/login_bloc.dart';
+import 'package:esmagador/view/android/screens/sign_up/bloc/sign_up_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../size_config.dart';
@@ -32,7 +36,7 @@ class AndroidApp extends StatelessWidget {
         future: Firebase.initializeApp(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done)
-            return TryAuthentication();
+            return App();
           else
             return Center(child: CircularProgressIndicator());
         },
@@ -41,32 +45,53 @@ class AndroidApp extends StatelessWidget {
   }
 }
 
-class TryAuthentication extends StatelessWidget {
-  TryAuthentication({
+class App extends StatefulWidget {
+  App({
     Key key,
   }) : super(key: key);
 
-  final stream = FirebaseAuth.instance.userChanges();
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  UserRepository _userRepository;
+  Stream<AuthenticatedUser> _stream;
+
+  @override
+  void initState() {
+    super.initState();
+    _userRepository = UserRepository();
+    _stream = _userRepository.listenToUserChanges();
+  }
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
 
-    return StreamBuilder<User>(
-      stream: stream,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          );
-        } else {
-          if (snapshot.data == null) {
-            return LoginScreen();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => SignUpBloc(_userRepository)),
+        BlocProvider(create: (context) => LoginBloc(_userRepository)),
+      ],
+      child: StreamBuilder<AuthenticatedUser>(
+        stream: _stream,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
           } else {
-            return PageManager();
+            if (snapshot.hasData) {
+              return PageManager();
+            } else {
+              return LoginScreen();
+            }
           }
-        }
-      },
+        },
+      ),
     );
   }
 }

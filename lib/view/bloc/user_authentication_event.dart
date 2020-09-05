@@ -22,12 +22,12 @@ class SignInEvent extends UserAuthenticationEvent {
   List<Object> get props => [email, password];
 }
 
-class RegisterEvent extends UserAuthenticationEvent {
+class SignUpEvent extends UserAuthenticationEvent {
   final String displayName;
   final String email;
   final String password;
 
-  const RegisterEvent({
+  const SignUpEvent({
     @required this.displayName,
     @required this.email,
     @required this.password,

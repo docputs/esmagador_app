@@ -1,13 +1,13 @@
+import 'package:esmagador/view/android/screens/login/bloc/login_bloc.dart';
 import 'package:esmagador/view/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../constants.dart';
 import 'create_account_text.dart';
 import 'login_form.dart';
 
 class Body extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -28,7 +28,25 @@ class Body extends StatelessWidget {
               height: getProportionateScreenHeight(150.0),
             ),
             SizedBox(height: 30),
-            LoginForm(),
+            BlocConsumer<LoginBloc, LoginState>(
+              listener: (context, state) {
+                if (state is LoginError) {
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(content: Text(state.errorMessage)),
+                  );
+                }
+              },
+              builder: (context, state) {
+                if (state is LoginLoading) {
+                  return Container(
+                    margin: const EdgeInsets.symmetric(vertical: 100),
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  return LoginForm();
+                }
+              },
+            ),
             CreateAccountText(),
             SizedBox(height: 20),
             buildCustomDivider(),

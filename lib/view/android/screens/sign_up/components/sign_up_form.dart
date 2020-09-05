@@ -1,7 +1,7 @@
+import 'package:esmagador/view/android/screens/sign_up/bloc/sign_up_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/signup_bloc.dart';
 import '../../../widgets/default_button.dart';
 import '../../../../constants.dart';
 
@@ -34,13 +34,12 @@ class _SignUpFormState extends State<SignUpForm> {
             text: 'Criar conta',
             handler: () {
               if (_formKey.currentState.validate()) {
-                context.bloc<SignupBloc>().signUp(
+                context.bloc<SignUpBloc>().signUp(
                       displayName: _displayName,
                       email: _email,
                       password: _password,
                     );
               }
-              print('deu ruim');
             },
           ),
         ],

@@ -1,5 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:esmagador/view/android/screens/login/bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../widgets/default_button.dart';
 import '../../../../constants.dart';
@@ -22,14 +23,7 @@ class _LoginFormState extends State<LoginForm> {
   void signIn() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      try {
-        await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: _email, password: _password);
-      } catch (error) {
-        Scaffold.of(context).showSnackBar(
-          SnackBar(content: Text(error.message)),
-        );
-      }
+      context.bloc<LoginBloc>().tryLogin(_email.trim(), _password.trim());
     }
   }
 

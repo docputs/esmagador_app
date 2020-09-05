@@ -8,18 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          // leading: IconButton(
-          //   icon: SvgPicture.asset(
-          //     'assets/icons/arrow-left.svg',
-          //     width: getProportionateScreenWidth(36),
-          //     height: getProportionateScreenHeight(36),
-          //   ),
-          //   onPressed: () {
-          //     Navigator.of(context).pop();
-          // },
-          // ),
-          ),
+      appBar: AppBar(),
       body: Body(),
     );
   }

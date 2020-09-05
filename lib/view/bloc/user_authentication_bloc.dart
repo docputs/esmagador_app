@@ -21,55 +21,37 @@ class UserAuthenticationBloc
   Stream<UserAuthenticationState> mapEventToState(
     UserAuthenticationEvent event,
   ) async* {
-    if (event is AppStarted)
-      yield* _mapAppStartedToState();
-    else if (event is SignInEvent)
-      yield* _mapSignInEventToState();
-    else if (event is RegisterEvent)
-      yield* _mapRegisterEventToState();
-    else
-      yield* _mapLogoutEventToState();
-    // try {
-    //   if (event is SignInEvent) {
-    //     final authenticatedUser = await _userRepository.signUserIn(
-    //       email: event.email,
-    //       password: event.password,
-    //     );
-    //     yield UserAuthenticationAuthenticated(authenticatedUser);
-    //   } else if (event is RegisterEvent) {
-    //     final registeredUser = await _userRepository.createNewAccount(
-    //       displayName: event.displayName,
-    //       email: event.email,
-    //       password: event.password,
-    //     );
-    //     yield UserAuthenticationAuthenticated(registeredUser);
-    //   } else {
-    //     await _userRepository.signOut();
-    //     yield UserAuthenticationUnauthenticated();
-    //   }
-    // } catch (error) {
-    //   yield UserAuthenticationError(error.message);
-    // }
-  }
-
-  Stream<UserAuthenticationState> _mapAppStartedToState() async* {
-    _userRepository.listenToUserChanges();
-  }
-
-  Stream<UserAuthenticationState> _mapSignInEventToState() async* {
-    final user = _userRepository.getCurrentUser();
-    yield UserAuthenticationAuthenticated(user);
-  }
-
-  Stream<UserAuthenticationState> _mapRegisterEventToState() async* {}
-
-  Stream<UserAuthenticationState> _mapLogoutEventToState() async* {
-    yield UserAuthenticationUnauthenticated();
+    if (event is SignInEvent) {
+      final authenticatedUser =
+          await _userRepository.signInWithEmailAndPassword(
+              email: event.email, password: event.password);
+      yield UserAuthenticationAuthenticated(authenticatedUser);
+    } else if (event is SignUpEvent) {
+      final authenticatedUser =
+          await _userRepository.createUserWithEmailAndPassword(
+              displayName: event.displayName,
+              email: event.email,
+              password: event.password);
+      yield UserAuthenticationAuthenticated(authenticatedUser);
+    } else
+      yield UserAuthenticationUnauthenticated();
     _userRepository.signOut();
   }
 
-  void signIn(String email, String password) =>
+  void signIn({
+    @required String email,
+    @required String password,
+  }) =>
       add(SignInEvent(email: email, password: password));
+
+  void signUp({
+    @required String displayName,
+    @required String email,
+    @required String password,
+  }) {
+    add(SignUpEvent(
+        displayName: displayName, email: email, password: password));
+  }
 
   void signOut() => add(LogoutEvent());
 
