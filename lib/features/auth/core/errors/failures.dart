@@ -11,3 +11,19 @@ class InvalidEmailAddress extends AuthFailure {
 class InvalidEmailAndPasswordCombination extends AuthFailure {
   InvalidEmailAndPasswordCombination(String message) : super(message);
 }
+
+class EmailBadlyFormatted extends AuthFailure {
+  EmailBadlyFormatted(String message) : super(message);
+}
+
+class WeakPassword extends AuthFailure {
+  WeakPassword(String message) : super(message);
+}
+
+class ServerFailure extends AuthFailure {
+  ServerFailure(String message) : super(message);
+}
+
+class UnknownFailure extends AuthFailure {
+  UnknownFailure(String message) : super(message);
+}

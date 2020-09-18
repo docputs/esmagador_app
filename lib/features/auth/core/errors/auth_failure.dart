@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class AuthFailure extends Equatable {
+abstract class AuthFailure extends Equatable {
   final String message;
 
   const AuthFailure(this.message);

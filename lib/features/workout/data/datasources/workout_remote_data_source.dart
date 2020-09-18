@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../models/workout_model.dart';
 
 abstract class WorkoutRemoteDataSource {
@@ -8,6 +10,10 @@ abstract class WorkoutRemoteDataSource {
 }
 
 class FirebaseRemoteDataSource implements WorkoutRemoteDataSource {
+  final FirebaseFirestore firestore;
+
+  const FirebaseRemoteDataSource(this.firestore);
+
   @override
   Future<List<WorkoutModel>> getWorkoutList() {
     // TODO: implement getWorkoutList

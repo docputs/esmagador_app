@@ -1,6 +1,12 @@
-import 'dart:io';
-
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() => null;
-// void main() => Platform.isIOS ? runApp(IOSApp()) : runApp(AndroidApp());
+import 'core/android_app.dart';
+import 'injection_container.dart' as di;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  di.init();
+  runApp(AndroidApp());
+}

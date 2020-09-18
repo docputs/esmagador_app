@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../../auth/data/repositories/user_repository.dart';
+import '../../../auth/domain/repositories/user_repository.dart';
 import '../../core/errors/workout_failure.dart';
 import '../../domain/entities/workout.dart';
 import '../../domain/repositories/workout_repository.dart';
