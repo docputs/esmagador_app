@@ -14,7 +14,7 @@ abstract class UserRepository {
     @required String email,
     @required String password,
   });
-  Future<Either<AuthFailure, Unit>> signOut();
+  Future<void> signOut();
   Stream<Option<UserModel>> onAuthStatusChanged();
   Future<Option<UserModel>> getCurrentUser();
   Future<Either<AuthFailure, Unit>> deleteAccount();

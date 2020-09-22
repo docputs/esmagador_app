@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constants.dart';
-import '../../../../../core/size_config.dart';
+import '../../../../core/constants.dart';
+import '../../../../core/size_config.dart';
 import 'create_workout_screen.dart';
 
-class WorkoutScreen extends StatelessWidget {
+class WorkoutPage extends StatelessWidget {
   static const routeName = '/workout';
 
   @override

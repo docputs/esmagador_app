@@ -4,6 +4,10 @@ class EmailAlreadyInUse extends AuthFailure {
   EmailAlreadyInUse(String message) : super(message);
 }
 
+class CancelledByUser extends AuthFailure {
+  CancelledByUser(String message) : super(message);
+}
+
 class InvalidEmailAddress extends AuthFailure {
   InvalidEmailAddress(String message) : super(message);
 }

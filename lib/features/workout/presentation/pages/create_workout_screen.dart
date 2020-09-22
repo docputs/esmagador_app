@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-import '../../widgets/default_button.dart';
+import '../../../../core/default_button.dart';
 
 class CreateWorkoutScreen extends StatelessWidget {
   static const routeName = '/create-workout';

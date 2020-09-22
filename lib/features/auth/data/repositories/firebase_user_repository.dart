@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../core/errors/auth_failure.dart';
 import '../../core/errors/failures.dart';
@@ -10,8 +11,9 @@ import '../../domain/repositories/user_repository.dart';
 
 class FirebaseUserRepository implements UserRepository {
   final FirebaseAuth _firebaseAuth;
+  final GoogleSignIn _googleSignIn;
 
-  const FirebaseUserRepository(this._firebaseAuth);
+  const FirebaseUserRepository(this._firebaseAuth, this._googleSignIn);
 
   @override
   Future<Either<AuthFailure, Unit>> changeDisplayName() {
@@ -73,10 +75,9 @@ class FirebaseUserRepository implements UserRepository {
           email: email, password: password);
       return right(unit);
     } on FirebaseAuthException catch (e) {
-      if (e.message == 'invalid-email') {
+      if (e.code == 'invalid-email') {
         return left(InvalidEmailAddress('Email inválido'));
-      } else if (e.message == 'user-not-found' ||
-          e.message == 'wrong-password') {
+      } else if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         return left(
             InvalidEmailAndPasswordCombination('Email e/ou senha inválidos'));
       } else {
@@ -88,8 +89,23 @@ class FirebaseUserRepository implements UserRepository {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithGoogle() {
-    // todo
+  Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
+    final signInAccount = await _googleSignIn.signIn();
+    if (signInAccount == null)
+      return left(CancelledByUser('Cancelado pelo usuário'));
+
+    final googleAuth = await signInAccount.authentication;
+    final credential = GoogleAuthProvider.credential(
+        idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
+
+    try {
+      await _firebaseAuth.signInWithCredential(credential);
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      return left(UnknownFailure('Erro desconhecido'));
+    }
   }
 
   @override
@@ -100,14 +116,7 @@ class FirebaseUserRepository implements UserRepository {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signOut() async {
-    try {
-      await _firebaseAuth.signOut();
-      return right(unit);
-    } on FirebaseAuthException {
-      return left(ServerFailure('Erro no servidor'));
-    } catch (e) {
-      return left(UnknownFailure('Erro desconhecido'));
-    }
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'screens/profile/profile_screen.dart';
-import 'screens/search/search_screen.dart';
-import 'screens/statistics/statistics_screen.dart';
-import 'screens/workout/workout_screen.dart';
+import '../features/profile/presentation/profile_screen.dart';
+import '../features/search/presentation/search_screen.dart';
+import '../features/statistics/presentation/statistics_screen.dart';
+import '../features/workout/presentation/pages/workout_page.dart';
 
 
 class NavigationItem {
@@ -25,7 +25,7 @@ class NavigationItemProvider with ChangeNotifier {
     NavigationItem(
       id: 1,
       asset: 'assets/icons/gym.svg',
-      destination: WorkoutScreen(),
+      destination: WorkoutPage(),
     ),
     NavigationItem(
       id: 2,
