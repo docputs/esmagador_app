@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
-import '../errors/workout_failure.dart';
+import '../errors/workout_failures.dart';
 
-abstract class UseCase<Type, Params> {
-  Future<Either<WorkoutFailure, Type>> call(Params params);
+abstract class UseCase<T, Params> {
+  Future<Either<WorkoutFailure, T>> call(Params params);
 }

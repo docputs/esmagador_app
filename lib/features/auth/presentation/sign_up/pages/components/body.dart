@@ -1,3 +1,4 @@
+import 'package:esmagador/features/auth/presentation/sign_up/pages/components/sign_in_text.dart';
 import 'package:flutter/material.dart';
 
 import 'sign_up_form.dart';
@@ -19,6 +20,8 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: 50),
             SignUpForm(),
+            SizedBox(height: 20),
+            SignInText(),
           ],
         ),
       ),

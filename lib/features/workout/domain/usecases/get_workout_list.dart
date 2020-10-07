@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../core/errors/workout_failure.dart';
+import '../../core/errors/workout_failures.dart';
 import '../../core/usecases/no_params.dart';
 import '../../core/usecases/usecase.dart';
 import '../entities/workout.dart';

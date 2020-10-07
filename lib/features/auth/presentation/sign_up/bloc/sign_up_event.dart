@@ -1,16 +1,10 @@
 part of 'sign_up_bloc.dart';
 
-@immutable
-abstract class SignUpEvent {}
-
-class SignUpUserEvent extends SignUpEvent {
-  final String displayName;
-  final String email;
-  final String password;
-
-  SignUpUserEvent({
-    @required this.displayName,
-    @required this.email,
-    @required this.password,
-  });
+@freezed
+abstract class SignUpEvent with _$SignUpEvent {
+  const factory SignUpEvent.displayNameChanged(String displayName) =
+      _DisplayNameChanged;
+  const factory SignUpEvent.emailChanged(String email) = _EmailChanged;
+  const factory SignUpEvent.passwordChanged(String password) = _PasswordChanged;
+  const factory SignUpEvent.signUpPressed() = _SignUpPressed;
 }

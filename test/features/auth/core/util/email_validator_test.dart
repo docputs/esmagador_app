@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:esmagador/features/auth/core/errors/failures.dart';
-import 'package:esmagador/features/auth/core/util/email_validator.dart';
+import 'package:esmagador/features/auth/core/errors/auth_failure.dart';
+import 'package:esmagador/features/auth/core/util/validators.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -23,6 +23,6 @@ void main() {
 
     final result = validator.validateEmailAddress(input);
 
-    expect(result, Left(EmailBadlyFormatted('Email inválido')));
+    expect(result, Left(AuthFailure.emailBadlyFormatted()));
   });
 }

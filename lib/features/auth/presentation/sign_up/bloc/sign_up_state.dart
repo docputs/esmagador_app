@@ -1,16 +1,22 @@
 part of 'sign_up_bloc.dart';
 
-@immutable
-abstract class SignUpState {}
+@freezed
+abstract class SignUpState with _$SignUpState {
+  const factory SignUpState({
+    @required String displayName,
+    @required String email,
+    @required String password,
+    @required bool isSubmitting,
+    @required bool showErrorMessages,
+    @required Option<Either<AuthFailure, Unit>> signUpSuccessOrFailureOption,
+  }) = _SignUpState;
 
-class SignUpInitial extends SignUpState {}
-
-class SignUpLoading extends SignUpState {}
-
-class SignUpSuccessful extends SignUpState {}
-
-class SignUpError extends SignUpState {
-  final String errorMessage;
-
-  SignUpError(this.errorMessage);
+  factory SignUpState.initial() => SignUpState(
+        displayName: '',
+        email: '',
+        password: '',
+        isSubmitting: false,
+        showErrorMessages: false,
+        signUpSuccessOrFailureOption: none(),
+      );
 }

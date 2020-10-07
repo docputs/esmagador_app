@@ -1,17 +1,16 @@
 import 'package:dartz/dartz.dart';
 
-import '../../core/errors/workout_failure.dart';
-import '../../core/usecases/no_params.dart';
+import '../../core/errors/workout_failures.dart';
 import '../../core/usecases/usecase.dart';
 import '../repositories/workout_repository.dart';
 
-class DeleteWorkout implements UseCase<Unit, NoParams> {
+class DeleteWorkout implements UseCase<Unit, String> {
   final WorkoutRepository _repository;
 
   const DeleteWorkout(this._repository);
 
   @override
-  Future<Either<WorkoutFailure, Unit>> call(NoParams params) {
-    return _repository.deleteWorkout();
+  Future<Either<WorkoutFailure, Unit>> call(String id) {
+    return _repository.deleteWorkout(id);
   }
 }

@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../core/errors/auth_failure.dart';
-import '../../core/errors/failures.dart';
 import '../../core/util/firebase_user_mapper.dart';
 import '../../domain/entities/user_model.dart';
 import '../../domain/repositories/user_repository.dart';
@@ -42,15 +41,17 @@ class FirebaseUserRepository implements UserRepository {
       await _firebaseAuth.currentUser.updateProfile(displayName: displayName);
       return right(unit);
     } on FirebaseAuthException catch (e) {
-      if (e.message == 'invalid-email') {
-        return left(InvalidEmailAddress('Email inválido'));
-      } else if (e.message == 'email-already-in-use') {
-        return left(EmailAlreadyInUse('Email já está em uso'));
-      } else if (e.message == 'weak-password') {
-        return left(WeakPassword('Senha fraca'));
+      if (e.code == 'invalid-email') {
+        return left(AuthFailure.invalidEmailAddress());
+      } else if (e.code == 'email-already-in-use') {
+        return left(AuthFailure.emailAlreadyInUse());
+      } else if (e.code == 'weak-password') {
+        return left(AuthFailure.weakPassword());
+      } else {
+        return left(AuthFailure.serverFailure());
       }
     } catch (e) {
-      return left(UnknownFailure('Erro desconhecido'));
+      return left(AuthFailure.unknownFailure());
     }
   }
 
@@ -76,23 +77,21 @@ class FirebaseUserRepository implements UserRepository {
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
-        return left(InvalidEmailAddress('Email inválido'));
+        return left(AuthFailure.invalidEmailAddress());
       } else if (e.code == 'user-not-found' || e.code == 'wrong-password') {
-        return left(
-            InvalidEmailAndPasswordCombination('Email e/ou senha inválidos'));
+        return left(AuthFailure.invalidEmailAndPasswordCombination());
       } else {
-        return left(ServerFailure('Erro no servidor'));
+        return left(AuthFailure.serverFailure());
       }
     } catch (e) {
-      return left(UnknownFailure('Erro desconhecido'));
+      return left(AuthFailure.unknownFailure());
     }
   }
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
     final signInAccount = await _googleSignIn.signIn();
-    if (signInAccount == null)
-      return left(CancelledByUser('Cancelado pelo usuário'));
+    if (signInAccount == null) return left(AuthFailure.cancelledByUser());
 
     final googleAuth = await signInAccount.authentication;
     final credential = GoogleAuthProvider.credential(
@@ -102,9 +101,9 @@ class FirebaseUserRepository implements UserRepository {
       await _firebaseAuth.signInWithCredential(credential);
       return right(unit);
     } on FirebaseAuthException catch (e) {
-      return left(ServerFailure(e.message));
+      return left(AuthFailure.serverFailure());
     } catch (e) {
-      return left(UnknownFailure('Erro desconhecido'));
+      return left(AuthFailure.unknownFailure());
     }
   }
 

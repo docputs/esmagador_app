@@ -1,4 +1,5 @@
 import 'package:esmagador/features/workout/domain/entities/exercise.dart';
+import 'package:esmagador/features/workout/domain/entities/user_exercise.dart';
 import 'package:esmagador/features/workout/domain/entities/workout.dart';
 
 final exercises = [
@@ -12,13 +13,20 @@ final exercises = [
   ),
 ];
 
+final userExercises = [
+  UserExercise(
+    exercise: exercises[0],
+    sets: 3,
+    reps: [8, 12],
+  ),
+];
+
 final workoutList = [workout];
 
 final workout = Workout(
-  id: '1',
+  id: '123',
   title: 'test workout',
-  durationInMinutes: 20.0,
-  dayOfWeek: 'quarta-feira',
-  exercises: exercises,
+  daysOfWeek: [1, 2, 4],
+  exercises: userExercises,
   createdAt: DateTime(2020, 7, 14),
 );

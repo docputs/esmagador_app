@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:esmagador/features/auth/core/errors/failures.dart';
-import 'package:esmagador/features/auth/core/util/email_validator.dart';
+import 'package:esmagador/features/auth/core/errors/auth_failure.dart';
+import 'package:esmagador/features/auth/core/util/validators.dart';
 import 'package:esmagador/features/auth/domain/repositories/user_repository.dart';
 import 'package:esmagador/features/auth/domain/usecases/sign_in.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -43,11 +43,11 @@ void main() {
 
   test('should return AuthFailure when email is invalid', () async {
     when(mockEmailValidator.validateEmailAddress(any))
-        .thenReturn(Left(EmailBadlyFormatted('Email inválido')));
+        .thenReturn(Left(AuthFailure.emailBadlyFormatted()));
 
     final result =
         await usecase(Params(email: invalidEmail, password: password));
 
-    expect(result, Left(InvalidEmailAddress('Email inválido')));
+    expect(result, Left(AuthFailure.invalidEmailAddress()));
   });
 }

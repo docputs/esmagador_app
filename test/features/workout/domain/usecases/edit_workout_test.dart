@@ -1,4 +1,3 @@
-import 'package:esmagador/features/workout/core/usecases/params.dart';
 import 'package:esmagador/features/workout/domain/repositories/workout_repository.dart';
 import 'package:esmagador/features/workout/domain/usecases/edit_workout.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -18,7 +17,7 @@ void main() {
   });
 
   test('deveria chamar editWorkout() no repositório', () async {
-    await usecase(Params(workout));
+    await usecase(workout);
 
     verify(mockWorkoutRepository.editWorkout(workout));
     verifyNoMoreInteractions(mockWorkoutRepository);

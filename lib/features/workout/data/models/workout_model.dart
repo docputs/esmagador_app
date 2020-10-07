@@ -1,47 +1,97 @@
+import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../domain/entities/exercise.dart';
+import '../../domain/entities/user_exercise.dart';
 import '../../domain/entities/workout.dart';
 
 class WorkoutModel extends Workout {
   final String id;
   final String title;
-  final double durationInMinutes;
-  final String dayOfWeek;
-  final List<Exercise> exercises;
+  final List<int> daysOfWeek;
+  final List<UserExercise> exercises;
   final DateTime createdAt;
 
   WorkoutModel({
     @required this.id,
     @required this.title,
-    @required this.durationInMinutes,
-    @required this.dayOfWeek,
+    @required this.daysOfWeek,
     @required this.exercises,
     @required this.createdAt,
   }) : super(
           id: id,
           title: title,
-          durationInMinutes: durationInMinutes,
-          dayOfWeek: dayOfWeek,
+          daysOfWeek: daysOfWeek,
           exercises: exercises,
           createdAt: createdAt,
         );
 
-  Map<String, dynamic> toMap() => {
-        'id': id,
-        'title': title,
-        'durationInMinutes': durationInMinutes,
-        'dayOfWeek': dayOfWeek,
-        'exercises': exercises.map(
-          (e) => {
-            'id': e.id,
-            'title': e.title,
-            'description': e.description,
-            'mainMuscle': e.mainMuscle,
-            'secondaryMuscles': e.secondaryMuscles,
-            'durationInSeconds': e.durationInSeconds,
-          },
-        ),
-        'createdAt': createdAt.toIso8601String(),
-      };
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'daysOfWeek': daysOfWeek,
+      'exercises': exercises?.map((x) => x?.toMap())?.toList(),
+      'createdAt': createdAt?.millisecondsSinceEpoch,
+    };
+  }
+
+  factory WorkoutModel.fromMap(Map<String, dynamic> map) {
+    if (map == null) return null;
+
+    return WorkoutModel(
+      id: map['id'],
+      title: map['title'],
+      daysOfWeek: List<int>.from(map['daysOfWeek']),
+      exercises: List<UserExercise>.from(
+          map['exercises']?.map((x) => UserExercise.fromMap(x))),
+      createdAt: DateTime.fromMillisecondsSinceEpoch(map['createdAt']),
+    );
+  }
+
+  factory WorkoutModel.fromEntity(Workout workout) {
+    return WorkoutModel(
+      id: workout.id,
+      title: workout.title,
+      daysOfWeek: workout.daysOfWeek,
+      exercises: workout.exercises,
+      createdAt: workout.createdAt,
+    );
+  }
+
+  factory WorkoutModel.fromFirestore(DocumentSnapshot doc) {
+    return WorkoutModel.fromMap(doc.data()).copyWith(id: doc.id);
+  }
+
+  Workout toDomain() {
+    return Workout(
+      id: id,
+      title: title,
+      daysOfWeek: daysOfWeek,
+      exercises: exercises,
+      createdAt: createdAt,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory WorkoutModel.fromJson(String source) =>
+      WorkoutModel.fromMap(json.decode(source));
+
+  WorkoutModel copyWith({
+    String id,
+    String title,
+    List<int> daysOfWeek,
+    List<UserExercise> exercises,
+    DateTime createdAt,
+  }) {
+    return WorkoutModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      daysOfWeek: daysOfWeek ?? this.daysOfWeek,
+      exercises: exercises ?? this.exercises,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
 }

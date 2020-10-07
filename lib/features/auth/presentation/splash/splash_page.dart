@@ -1,9 +1,11 @@
-import 'package:esmagador/core/bottom_navigation_manager.dart';
+import 'package:esmagador/features/walkthrough/usecases/show_walkthrough.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../core/bottom_navigation_manager.dart';
 import '../../../../core/size_config.dart';
-import '../../../profile/presentation/profile_screen.dart';
+import '../../../walkthrough/presentation/walkthrough_page.dart';
 import '../auth_bloc.dart';
 import '../sign_in/pages/sign_in_page.dart';
 
@@ -20,8 +22,16 @@ class SplashPage extends StatelessWidget {
             Navigator.of(context)
                 .pushReplacementNamed(BottomNavigationManager.routeName);
           },
-          unauthenticated: (_) {
-            Navigator.of(context).pushReplacementNamed(SignInPage.routeName);
+          unauthenticated: (_) async {
+            final usecase =
+                Provider.of<ShowWalkthrough>(context, listen: false);
+            final showWalkthrough = await usecase();
+            if (showWalkthrough) {
+              Navigator.of(context)
+                  .pushReplacementNamed(WalkthroughPage.routeName);
+            } else {
+              Navigator.of(context).pushReplacementNamed(SignInPage.routeName);
+            }
           },
         );
       },

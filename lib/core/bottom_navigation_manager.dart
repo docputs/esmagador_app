@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import 'constants.dart';
@@ -30,7 +29,7 @@ class BottomNavigationManager extends StatelessWidget {
         children: List.generate(
           navigationItems.items.length,
           (index) => buildBottomNavigationItem(
-            asset: navigationItems.items[index].asset,
+            icon: navigationItems.items[index].icon,
             onPressed: () => navigationItems.changePage(index),
             isActive: navigationItems.selectedIndex == index,
           ),
@@ -40,13 +39,13 @@ class BottomNavigationManager extends StatelessWidget {
   }
 
   IconButton buildBottomNavigationItem({
-    @required String asset,
+    @required IconData icon,
     @required Function onPressed,
     @required bool isActive,
   }) {
     return IconButton(
-      icon: SvgPicture.asset(
-        asset,
+      icon: Icon(
+        icon,
         color: isActive ? kPrimaryColor : Colors.grey,
       ),
       onPressed: onPressed,

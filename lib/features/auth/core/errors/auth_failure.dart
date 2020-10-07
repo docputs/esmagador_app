@@ -1,13 +1,18 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class AuthFailure extends Equatable {
-  final String message;
+part 'auth_failure.freezed.dart';
 
-  const AuthFailure(this.message);
-
-  @override
-  String toString() => 'AuthFailure($message)';
-
-  @override
-  List<Object> get props => [message];
+@freezed
+abstract class AuthFailure with _$AuthFailure {
+  const factory AuthFailure.emptyField() = _EmptyField;
+  const factory AuthFailure.displayNameTooLong() = _DisplayNameTooLong;
+  const factory AuthFailure.emailAlreadyInUse() = _EmailAlreadyInUse;
+  const factory AuthFailure.cancelledByUser() = _CancelledByUser;
+  const factory AuthFailure.invalidEmailAddress() = _InvalidEmailAddress;
+  const factory AuthFailure.invalidEmailAndPasswordCombination() =
+      _InvalidEmailAndPasswordCombination;
+  const factory AuthFailure.emailBadlyFormatted() = _EmailBadlyFormatted;
+  const factory AuthFailure.weakPassword() = _WeakPassword;
+  const factory AuthFailure.serverFailure() = _ServerFailure;
+  const factory AuthFailure.unknownFailure() = _UnknownFailure;
 }

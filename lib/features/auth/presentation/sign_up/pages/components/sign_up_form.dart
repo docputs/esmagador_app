@@ -1,51 +1,75 @@
-import 'package:esmagador/core/constants.dart';
-import 'package:esmagador/features/auth/presentation/sign_up/bloc/sign_up_bloc.dart';
-import 'package:esmagador/core/default_button.dart';
+import 'package:esmagador/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpForm extends StatefulWidget {
-  @override
-  _SignUpFormState createState() => _SignUpFormState();
-}
+import '../../../../../../core/bottom_navigation_manager.dart';
+import '../../../../../../core/constants.dart';
+import '../../../../../../core/default_button.dart';
+import '../../../../core/util/validators.dart';
+import '../../../auth_bloc.dart';
+import '../../bloc/sign_up_bloc.dart';
 
-class _SignUpFormState extends State<SignUpForm> {
-  final _formKey = GlobalKey<FormState>();
-
-  String _displayName;
-  String _email;
-  String _password;
-
+class SignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          buildNameInput(),
-          SizedBox(height: 10),
-          buildEmailInput(),
-          SizedBox(height: 10),
-          buildPasswordInput(),
-          SizedBox(height: 10),
-          buildConfirmPasswordInput(),
-          DefaultButton(
-            text: 'Criar conta',
-            handler: () {
-              if (_formKey.currentState.validate()) {
-                context.bloc<SignUpBloc>().add(SignUpUserEvent(
-                    displayName: _displayName,
-                    email: _email,
-                    password: _password));
-              }
+    return BlocConsumer<SignUpBloc, SignUpState>(
+      listener: (context, state) {
+        state.signUpSuccessOrFailureOption.fold(
+          () {},
+          (either) => either.fold(
+            (f) => Scaffold.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  f.maybeMap(
+                    orElse: () {},
+                    emailAlreadyInUse: (_) => 'Email já está em uso',
+                    invalidEmailAndPasswordCombination: (_) =>
+                        'Email e/ou senha inválidos',
+                    serverFailure: (value) => 'Erro no servidor',
+                    unknownFailure: (_) => 'Erro desconhecido',
+                    weakPassword: (_) => 'Senha muito fraca',
+                  ),
+                ),
+              ),
+            ),
+            (_) {
+              context.bloc<AuthBloc>().add(AuthEvent.authCheckRequested());
+              Navigator.of(context)
+                  .pushReplacementNamed(BottomNavigationManager.routeName);
             },
           ),
-        ],
-      ),
+        );
+      },
+      builder: (context, state) {
+        return Form(
+          autovalidate: state.showErrorMessages,
+          child: Column(
+            children: [
+              buildNameInput(context, state),
+              SizedBox(height: 10),
+              buildEmailInput(context, state),
+              SizedBox(height: 10),
+              buildPasswordInput(context, state),
+              SizedBox(height: 10),
+              buildConfirmPasswordInput(context, state),
+              DefaultButton(
+                text: 'Criar conta',
+                handler: state.isSubmitting
+                    ? null
+                    : () {
+                        context
+                            .bloc<SignUpBloc>()
+                            .add(const SignUpEvent.signUpPressed());
+                      },
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
-  TextFormField buildNameInput() {
+  TextFormField buildNameInput(BuildContext context, SignUpState state) {
     return TextFormField(
       autocorrect: false,
       cursorColor: kPrimaryColor,
@@ -56,14 +80,23 @@ class _SignUpFormState extends State<SignUpForm> {
         hintText: 'Seu nome',
         border: OutlineInputBorder(borderRadius: kBorderRadius),
       ),
+      validator: (value) => sl<Validators>().validateDisplayName(value).fold(
+            (f) => f.maybeMap(
+              orElse: () => null,
+              displayNameTooLong: (_) => 'Nome muito grande',
+              emptyField: (_) => 'Campo obrigatório',
+            ),
+            (r) => null,
+          ),
       onChanged: (value) {
-        _displayName = value;
+        context.bloc<SignUpBloc>().add(SignUpEvent.displayNameChanged(value));
       },
     );
   }
 
-  TextFormField buildEmailInput() {
+  TextFormField buildEmailInput(BuildContext context, SignUpState state) {
     return TextFormField(
+      autovalidate: state.showErrorMessages,
       autocorrect: false,
       cursorColor: kPrimaryColor,
       enableSuggestions: false,
@@ -73,18 +106,21 @@ class _SignUpFormState extends State<SignUpForm> {
         hintText: 'Seu email',
         border: OutlineInputBorder(borderRadius: kBorderRadius),
       ),
-      validator: (value) {
-        if (value.isEmpty) return 'Campo obrigatório';
-        if (!value.contains('@')) return 'Insira um email válido';
-        return null;
-      },
+      validator: (value) => sl<Validators>().validateEmailAddress(value).fold(
+            (f) => f.maybeMap(
+              orElse: () => null,
+              emptyField: (_) => 'Campo obrigatório',
+              emailBadlyFormatted: (_) => 'Email inválido',
+            ),
+            (_) => null,
+          ),
       onChanged: (value) {
-        _email = value;
+        context.bloc<SignUpBloc>().add(SignUpEvent.emailChanged(value));
       },
     );
   }
 
-  TextFormField buildPasswordInput() {
+  TextFormField buildPasswordInput(BuildContext context, SignUpState state) {
     return TextFormField(
       autocorrect: false,
       cursorColor: kPrimaryColor,
@@ -96,15 +132,23 @@ class _SignUpFormState extends State<SignUpForm> {
         hintText: 'Sua senha',
         border: OutlineInputBorder(borderRadius: kBorderRadius),
       ),
+      validator: (value) => sl<Validators>().validatePassword(value).fold(
+            (f) => f.maybeMap(
+              orElse: () => null,
+              emptyField: (_) => 'Campo obrigatório',
+            ),
+            (r) => null,
+          ),
       onChanged: (value) {
-        _password = value;
+        context.bloc<SignUpBloc>().add(SignUpEvent.passwordChanged(value));
       },
     );
   }
 
-  TextFormField buildConfirmPasswordInput() {
+  TextFormField buildConfirmPasswordInput(
+      BuildContext context, SignUpState state) {
     return TextFormField(
-      autocorrect: false,
+      autocorrect: state.showErrorMessages,
       cursorColor: kPrimaryColor,
       enableSuggestions: false,
       keyboardType: TextInputType.name,
@@ -114,12 +158,8 @@ class _SignUpFormState extends State<SignUpForm> {
         hintText: 'Confirme sua senha',
         border: OutlineInputBorder(borderRadius: kBorderRadius),
       ),
-      validator: (value) {
-        if (value.isEmpty)
-          return 'Campo obrigatório';
-        else if (value != _password) return 'Senhas não conferem';
-        return null;
-      },
+      validator: (value) =>
+          state.password == value ? null : 'Senhas não conferem',
     );
   }
 }

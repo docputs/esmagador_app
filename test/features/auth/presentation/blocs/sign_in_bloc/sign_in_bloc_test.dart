@@ -1,7 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:esmagador/features/auth/core/errors/failures.dart';
-import 'package:esmagador/features/auth/core/util/email_validator.dart';
+import 'package:esmagador/features/auth/core/errors/auth_failure.dart';
 import 'package:esmagador/features/auth/domain/entities/user_model.dart';
 import 'package:esmagador/features/auth/domain/usecases/sign_in.dart';
 import 'package:esmagador/features/auth/domain/usecases/sign_in_with_google.dart';
@@ -37,8 +36,8 @@ void main() {
     blocTest(
       'should emit [SignInLoading, SignInError] when signIn returns an AuthFailure',
       build: () {
-        when(mockSignIn(any)).thenAnswer(
-            (_) async => Left(InvalidEmailAddress('Email inválido')));
+        when(mockSignIn(any))
+            .thenAnswer((_) async => Left(AuthFailure.invalidEmailAddress()));
         return bloc;
       },
       act: (bloc) => bloc.add(SignedIn(email: email, password: password)),

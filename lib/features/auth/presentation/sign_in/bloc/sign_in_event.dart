@@ -1,23 +1,10 @@
 part of 'sign_in_bloc.dart';
 
-abstract class SignInEvent extends Equatable {
-  const SignInEvent();
-
-  @override
-  List<Object> get props => [];
+@freezed
+abstract class SignInEvent with _$SignInEvent {
+  const factory SignInEvent.emailChanged(String email) = _EmailChanged;
+  const factory SignInEvent.passwordChanged(String password) = _PasswordChanged;
+  const factory SignInEvent.signInPressed() = _SignInPressed;
+  const factory SignInEvent.signInWithGooglePressed() =
+      _SignInWithGooglePressed;
 }
-
-class SignedIn extends SignInEvent {
-  final String email;
-  final String password;
-
-  const SignedIn({
-    @required this.email,
-    @required this.password,
-  });
-
-  @override
-  List<Object> get props => [email, password];
-}
-
-class SignedInWithGoogle extends SignInEvent {}

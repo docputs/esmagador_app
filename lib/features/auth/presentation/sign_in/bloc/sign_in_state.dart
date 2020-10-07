@@ -1,23 +1,20 @@
 part of 'sign_in_bloc.dart';
 
-abstract class SignInState extends Equatable {
-  const SignInState();
+@freezed
+abstract class SignInState with _$SignInState {
+  const factory SignInState({
+    @required String email,
+    @required String password,
+    @required bool isSubmitting,
+    @required bool showErrorMessages,
+    @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+  }) = _SignInState;
 
-  @override
-  List<Object> get props => [];
+  factory SignInState.initial() => SignInState(
+        email: '',
+        password: '',
+        isSubmitting: false,
+        showErrorMessages: false,
+        authFailureOrSuccessOption: none(),
+      );
 }
-
-class SignInInitial extends SignInState {}
-
-class SignInLoading extends SignInState {}
-
-class SignInError extends SignInState {
-  final String message;
-
-  const SignInError(this.message);
-
-  @override
-  List<Object> get props => [message];
-}
-
-class SignInSuccessful extends SignInState {}
