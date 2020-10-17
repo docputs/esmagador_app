@@ -2,11 +2,13 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:esmagador/features/auth/core/util/validators.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../core/errors/auth_failure.dart';
 import '../../core/usecases/usecase.dart';
 import '../repositories/user_repository.dart';
 
+@lazySingleton
 class SignIn extends UseCase<Unit, Params> {
   final Validators validators;
   final UserRepository userRepository;

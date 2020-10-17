@@ -18,8 +18,5 @@ abstract class UserRepository {
   Stream<Option<UserModel>> onAuthStatusChanged();
   Future<Option<UserModel>> getCurrentUser();
   Future<Either<AuthFailure, Unit>> deleteAccount();
-  Future<Either<AuthFailure, Unit>> changeEmail();
-  Future<Either<AuthFailure, Unit>> changePassword();
-  Future<Either<AuthFailure, Unit>> changeDisplayName();
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
 }

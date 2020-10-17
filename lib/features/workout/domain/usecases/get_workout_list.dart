@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../core/errors/workout_failures.dart';
 import '../../core/usecases/no_params.dart';
@@ -6,6 +7,7 @@ import '../../core/usecases/usecase.dart';
 import '../entities/workout.dart';
 import '../repositories/workout_repository.dart';
 
+@lazySingleton
 class GetWorkoutList implements UseCase<List<Workout>, NoParams> {
   final WorkoutRepository _repository;
 

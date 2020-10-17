@@ -14,6 +14,7 @@ class SelectedExercisesList extends StatelessWidget {
     return BlocBuilder<CreateWorkoutBloc, CreateWorkoutState>(
       builder: (context, state) {
         return ListView.builder(
+          physics: BouncingScrollPhysics(),
           itemBuilder: (context, index) => ListTile(
             contentPadding: const EdgeInsets.symmetric(vertical: 15),
             title: Text(

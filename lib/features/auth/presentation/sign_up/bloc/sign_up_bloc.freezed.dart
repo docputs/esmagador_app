@@ -9,6 +9,7 @@ part of 'sign_up_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$SignUpEventTearOff {
   const _$SignUpEventTearOff();
 
@@ -39,9 +40,11 @@ class _$SignUpEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SignUpEvent = _$SignUpEventTearOff();
 
+/// @nodoc
 mixin _$SignUpEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -75,12 +78,14 @@ mixin _$SignUpEvent {
   });
 }
 
+/// @nodoc
 abstract class $SignUpEventCopyWith<$Res> {
   factory $SignUpEventCopyWith(
           SignUpEvent value, $Res Function(SignUpEvent) then) =
       _$SignUpEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$SignUpEventCopyWithImpl<$Res> implements $SignUpEventCopyWith<$Res> {
   _$SignUpEventCopyWithImpl(this._value, this._then);
 
@@ -89,6 +94,7 @@ class _$SignUpEventCopyWithImpl<$Res> implements $SignUpEventCopyWith<$Res> {
   final $Res Function(SignUpEvent) _then;
 }
 
+/// @nodoc
 abstract class _$DisplayNameChangedCopyWith<$Res> {
   factory _$DisplayNameChangedCopyWith(
           _DisplayNameChanged value, $Res Function(_DisplayNameChanged) then) =
@@ -96,6 +102,7 @@ abstract class _$DisplayNameChangedCopyWith<$Res> {
   $Res call({String displayName});
 }
 
+/// @nodoc
 class __$DisplayNameChangedCopyWithImpl<$Res>
     extends _$SignUpEventCopyWithImpl<$Res>
     implements _$DisplayNameChangedCopyWith<$Res> {
@@ -116,6 +123,7 @@ class __$DisplayNameChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_DisplayNameChanged implements _DisplayNameChanged {
   const _$_DisplayNameChanged(this.displayName) : assert(displayName != null);
 
@@ -214,6 +222,7 @@ abstract class _DisplayNameChanged implements SignUpEvent {
   _$DisplayNameChangedCopyWith<_DisplayNameChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class _$EmailChangedCopyWith<$Res> {
   factory _$EmailChangedCopyWith(
           _EmailChanged value, $Res Function(_EmailChanged) then) =
@@ -221,6 +230,7 @@ abstract class _$EmailChangedCopyWith<$Res> {
   $Res call({String email});
 }
 
+/// @nodoc
 class __$EmailChangedCopyWithImpl<$Res> extends _$SignUpEventCopyWithImpl<$Res>
     implements _$EmailChangedCopyWith<$Res> {
   __$EmailChangedCopyWithImpl(
@@ -240,6 +250,7 @@ class __$EmailChangedCopyWithImpl<$Res> extends _$SignUpEventCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_EmailChanged implements _EmailChanged {
   const _$_EmailChanged(this.email) : assert(email != null);
 
@@ -337,6 +348,7 @@ abstract class _EmailChanged implements SignUpEvent {
   _$EmailChangedCopyWith<_EmailChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class _$PasswordChangedCopyWith<$Res> {
   factory _$PasswordChangedCopyWith(
           _PasswordChanged value, $Res Function(_PasswordChanged) then) =
@@ -344,6 +356,7 @@ abstract class _$PasswordChangedCopyWith<$Res> {
   $Res call({String password});
 }
 
+/// @nodoc
 class __$PasswordChangedCopyWithImpl<$Res>
     extends _$SignUpEventCopyWithImpl<$Res>
     implements _$PasswordChangedCopyWith<$Res> {
@@ -364,6 +377,7 @@ class __$PasswordChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_PasswordChanged implements _PasswordChanged {
   const _$_PasswordChanged(this.password) : assert(password != null);
 
@@ -462,12 +476,14 @@ abstract class _PasswordChanged implements SignUpEvent {
   _$PasswordChangedCopyWith<_PasswordChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class _$SignUpPressedCopyWith<$Res> {
   factory _$SignUpPressedCopyWith(
           _SignUpPressed value, $Res Function(_SignUpPressed) then) =
       __$SignUpPressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$SignUpPressedCopyWithImpl<$Res> extends _$SignUpEventCopyWithImpl<$Res>
     implements _$SignUpPressedCopyWith<$Res> {
   __$SignUpPressedCopyWithImpl(
@@ -478,6 +494,7 @@ class __$SignUpPressedCopyWithImpl<$Res> extends _$SignUpEventCopyWithImpl<$Res>
   _SignUpPressed get _value => super._value as _SignUpPressed;
 }
 
+/// @nodoc
 class _$_SignUpPressed implements _SignUpPressed {
   const _$_SignUpPressed();
 
@@ -561,6 +578,7 @@ abstract class _SignUpPressed implements SignUpEvent {
   const factory _SignUpPressed() = _$_SignUpPressed;
 }
 
+/// @nodoc
 class _$SignUpStateTearOff {
   const _$SignUpStateTearOff();
 
@@ -589,9 +607,11 @@ class _$SignUpStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SignUpState = _$SignUpStateTearOff();
 
+/// @nodoc
 mixin _$SignUpState {
   String get displayName;
   String get email;
@@ -603,6 +623,7 @@ mixin _$SignUpState {
   $SignUpStateCopyWith<SignUpState> get copyWith;
 }
 
+/// @nodoc
 abstract class $SignUpStateCopyWith<$Res> {
   factory $SignUpStateCopyWith(
           SignUpState value, $Res Function(SignUpState) then) =
@@ -616,6 +637,7 @@ abstract class $SignUpStateCopyWith<$Res> {
       Option<Either<AuthFailure, Unit>> signUpSuccessOrFailureOption});
 }
 
+/// @nodoc
 class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
   _$SignUpStateCopyWithImpl(this._value, this._then);
 
@@ -649,6 +671,7 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SignUpStateCopyWith<$Res>
     implements $SignUpStateCopyWith<$Res> {
   factory _$SignUpStateCopyWith(
@@ -664,6 +687,7 @@ abstract class _$SignUpStateCopyWith<$Res>
       Option<Either<AuthFailure, Unit>> signUpSuccessOrFailureOption});
 }
 
+/// @nodoc
 class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
     implements _$SignUpStateCopyWith<$Res> {
   __$SignUpStateCopyWithImpl(
@@ -699,6 +723,7 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_SignUpState implements _SignUpState {
   const _$_SignUpState(
       {@required this.displayName,

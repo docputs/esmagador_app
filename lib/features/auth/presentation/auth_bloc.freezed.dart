@@ -9,6 +9,7 @@ part of 'auth_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$AuthEventTearOff {
   const _$AuthEventTearOff();
 
@@ -23,9 +24,11 @@ class _$AuthEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $AuthEvent = _$AuthEventTearOff();
 
+/// @nodoc
 mixin _$AuthEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -51,11 +54,13 @@ mixin _$AuthEvent {
   });
 }
 
+/// @nodoc
 abstract class $AuthEventCopyWith<$Res> {
   factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
       _$AuthEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
   _$AuthEventCopyWithImpl(this._value, this._then);
 
@@ -64,12 +69,14 @@ class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
   final $Res Function(AuthEvent) _then;
 }
 
+/// @nodoc
 abstract class _$AuthCheckRequestedCopyWith<$Res> {
   factory _$AuthCheckRequestedCopyWith(
           _AuthCheckRequested value, $Res Function(_AuthCheckRequested) then) =
       __$AuthCheckRequestedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$AuthCheckRequestedCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res>
     implements _$AuthCheckRequestedCopyWith<$Res> {
@@ -81,6 +88,7 @@ class __$AuthCheckRequestedCopyWithImpl<$Res>
   _AuthCheckRequested get _value => super._value as _AuthCheckRequested;
 }
 
+/// @nodoc
 class _$_AuthCheckRequested implements _AuthCheckRequested {
   const _$_AuthCheckRequested();
 
@@ -152,12 +160,14 @@ abstract class _AuthCheckRequested implements AuthEvent {
   const factory _AuthCheckRequested() = _$_AuthCheckRequested;
 }
 
+/// @nodoc
 abstract class _$SignedOutCopyWith<$Res> {
   factory _$SignedOutCopyWith(
           _SignedOut value, $Res Function(_SignedOut) then) =
       __$SignedOutCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$SignedOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
     implements _$SignedOutCopyWith<$Res> {
   __$SignedOutCopyWithImpl(_SignedOut _value, $Res Function(_SignedOut) _then)
@@ -167,6 +177,7 @@ class __$SignedOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
   _SignedOut get _value => super._value as _SignedOut;
 }
 
+/// @nodoc
 class _$_SignedOut implements _SignedOut {
   const _$_SignedOut();
 
@@ -238,6 +249,7 @@ abstract class _SignedOut implements AuthEvent {
   const factory _SignedOut() = _$_SignedOut;
 }
 
+/// @nodoc
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
@@ -257,9 +269,11 @@ class _$AuthStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $AuthState = _$AuthStateTearOff();
 
+/// @nodoc
 mixin _$AuthState {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -289,11 +303,13 @@ mixin _$AuthState {
   });
 }
 
+/// @nodoc
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   _$AuthStateCopyWithImpl(this._value, this._then);
 
@@ -302,12 +318,14 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   final $Res Function(AuthState) _then;
 }
 
+/// @nodoc
 abstract class _$InitializingCopyWith<$Res> {
   factory _$InitializingCopyWith(
           _Initializing value, $Res Function(_Initializing) then) =
       __$InitializingCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$InitializingCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     implements _$InitializingCopyWith<$Res> {
   __$InitializingCopyWithImpl(
@@ -318,6 +336,7 @@ class __$InitializingCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
   _Initializing get _value => super._value as _Initializing;
 }
 
+/// @nodoc
 class _$_Initializing implements _Initializing {
   const _$_Initializing();
 
@@ -395,12 +414,14 @@ abstract class _Initializing implements AuthState {
   const factory _Initializing() = _$_Initializing;
 }
 
+/// @nodoc
 abstract class _$AuthenticatedCopyWith<$Res> {
   factory _$AuthenticatedCopyWith(
           _Authenticated value, $Res Function(_Authenticated) then) =
       __$AuthenticatedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$AuthenticatedCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     implements _$AuthenticatedCopyWith<$Res> {
   __$AuthenticatedCopyWithImpl(
@@ -411,6 +432,7 @@ class __$AuthenticatedCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
   _Authenticated get _value => super._value as _Authenticated;
 }
 
+/// @nodoc
 class _$_Authenticated implements _Authenticated {
   const _$_Authenticated();
 
@@ -488,12 +510,14 @@ abstract class _Authenticated implements AuthState {
   const factory _Authenticated() = _$_Authenticated;
 }
 
+/// @nodoc
 abstract class _$UnauthenticatedCopyWith<$Res> {
   factory _$UnauthenticatedCopyWith(
           _Unauthenticated value, $Res Function(_Unauthenticated) then) =
       __$UnauthenticatedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$UnauthenticatedCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     implements _$UnauthenticatedCopyWith<$Res> {
   __$UnauthenticatedCopyWithImpl(
@@ -504,6 +528,7 @@ class __$UnauthenticatedCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
   _Unauthenticated get _value => super._value as _Unauthenticated;
 }
 
+/// @nodoc
 class _$_Unauthenticated implements _Unauthenticated {
   const _$_Unauthenticated();
 

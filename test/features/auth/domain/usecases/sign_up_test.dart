@@ -17,10 +17,7 @@ void main() {
   setUp(() {
     mockUserRepository = MockUserRepository();
     mockValidators = MockValidators();
-    usecase = SignUp(
-      repository: mockUserRepository,
-      validators: mockValidators,
-    );
+    usecase = SignUp(mockUserRepository);
   });
 
   final displayName = 'Teste';

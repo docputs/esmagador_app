@@ -1,17 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import '../../../../../../core/constants.dart';
 import '../../../../../../core/default_button.dart';
+import '../../../../../../routes/router.gr.dart';
 import '../../bloc/create_workout_bloc.dart';
-import 'controller/choose_routine_controller.dart';
-import '../choose_exercises/choose_exercises_page.dart';
 import '../components/custom_header.dart';
+import 'controller/choose_routine_controller.dart';
 
 class ChooseRoutinePage extends StatefulWidget {
-  static const routeName = '/choose-routine';
-
   @override
   _ChooseRoutinePageState createState() => _ChooseRoutinePageState();
 }
@@ -28,7 +27,7 @@ class _ChooseRoutinePageState extends State<ChooseRoutinePage> {
             FeatherIcons.arrowLeft,
             color: Colors.black,
           ),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => ExtendedNavigator.of(context).pop(),
         ),
       ),
       body: Padding(
@@ -44,18 +43,22 @@ class _ChooseRoutinePageState extends State<ChooseRoutinePage> {
                   ),
                   Expanded(
                     child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
                       itemCount: 7,
-                      itemBuilder: (context, index) => CheckboxListTile(
-                        contentPadding: const EdgeInsets.all(0),
-                        activeColor: kPrimaryColor,
-                        title: Text(controller.weekdays[index]['title']),
-                        value: controller.weekdays[index]['isSelected'],
-                        onChanged: (value) {
-                          setState(() {
-                            controller.weekdays[index]['isSelected'] = value;
-                          });
-                        },
-                      ),
+                      itemBuilder: (context, index) {
+                        final weekday = controller.weekdays[index];
+                        return CheckboxListTile(
+                          contentPadding: const EdgeInsets.all(0),
+                          activeColor: kPrimaryColor,
+                          title: Text(weekday['title']),
+                          value: weekday['isSelected'],
+                          onChanged: (value) {
+                            setState(() {
+                              weekday['isSelected'] = value;
+                            });
+                          },
+                        );
+                      },
                     ),
                   )
                 ],
@@ -70,8 +73,8 @@ class _ChooseRoutinePageState extends State<ChooseRoutinePage> {
                     context
                         .bloc<CreateWorkoutBloc>()
                         .add(CreateWorkoutEvent.routineSubmitted(weekdays));
-                    Navigator.of(context)
-                        .pushNamed(ChooseExercisesPage.routeName);
+                    ExtendedNavigator.of(context)
+                        .push(Routes.chooseExercisesPage);
                   };
                 },
               ),

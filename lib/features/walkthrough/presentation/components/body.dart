@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import './walkthrough_content.dart';
 import '../../../../core/constants.dart';
 import '../../../../core/size_config.dart';
-import '../../../auth/presentation/sign_in/pages/sign_in_page.dart';
+import '../../../../routes/router.gr.dart';
+import 'walkthrough_content.dart';
 
 class Body extends StatefulWidget {
   const Body({
@@ -80,8 +81,7 @@ class _BodyState extends State<Body> {
                     shape: RoundedRectangleBorder(borderRadius: kBorderRadius),
                     color: kPrimaryColor,
                     onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(SignInPage.routeName);
+                      ExtendedNavigator.of(context).replace(Routes.signInPage);
                     },
                     child: Text(
                       'Continuar',

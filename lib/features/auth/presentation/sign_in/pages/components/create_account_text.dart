@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:esmagador/features/auth/presentation/sign_up/pages/sign_up_screen.dart';
+import 'package:esmagador/routes/router.gr.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +23,7 @@ class _CreateAccountTextState extends State<CreateAccountText> {
     super.initState();
     _tapGestureRecognizer = TapGestureRecognizer()
       ..onTap = () {
-        Navigator.of(context).pushReplacementNamed(SignUpPage.routeName);
+        ExtendedNavigator.of(context).replace(Routes.signUpPage);
       };
   }
 

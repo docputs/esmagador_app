@@ -13,13 +13,14 @@ class CustomHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
-          style: Theme.of(context)
-              .textTheme
-              .headline4
-              .copyWith(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 26,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         SizedBox(width: double.infinity, child: subtitle),
       ],

@@ -1,8 +1,11 @@
-import 'package:esmagador/features/workout/core/errors/workout_failures.dart';
 import 'package:dartz/dartz.dart';
-import 'package:esmagador/features/workout/domain/entities/workout.dart';
-import 'package:esmagador/features/workout/domain/repositories/workout_repository.dart';
+import 'package:injectable/injectable.dart';
 
+import '../../core/errors/workout_failures.dart';
+import '../entities/workout.dart';
+import '../repositories/workout_repository.dart';
+
+@lazySingleton
 class WatchWorkouts {
   final WorkoutRepository _repository;
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../bloc/sign_in_bloc.dart';
 import '../../../../../../core/constants.dart';
 import '../../../../../../core/size_config.dart';
 import 'create_account_text.dart';
@@ -40,7 +42,9 @@ class Body extends StatelessWidget {
                 'Entrar com o Google',
               ),
               onPressed: () {
-                // context.bloc<SignInBloc>().add(SignedInWithGoogle());
+                context
+                    .bloc<SignInBloc>()
+                    .add(const SignInEvent.signInWithGooglePressed());
               },
             ),
           ],

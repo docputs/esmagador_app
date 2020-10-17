@@ -1,5 +1,8 @@
-import 'package:esmagador/features/walkthrough/data/local_data_source.dart';
+import 'package:injectable/injectable.dart';
 
+import '../data/local_data_source.dart';
+
+@lazySingleton
 class ShowWalkthrough {
   final LocalDataSource _localDataSource;
 

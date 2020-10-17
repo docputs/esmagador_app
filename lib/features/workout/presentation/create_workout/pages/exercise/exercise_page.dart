@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:esmagador/features/workout/domain/entities/exercise.dart';
 import 'package:esmagador/features/workout/presentation/create_workout/bloc/choose_exercise/choose_exercise_bloc.dart';
 import 'package:esmagador/features/workout/presentation/create_workout/bloc/create_workout_bloc.dart';
@@ -22,7 +23,7 @@ class ExercisePage extends StatelessWidget {
             FeatherIcons.arrowLeft,
             color: Colors.black,
           ),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => ExtendedNavigator.of(context).pop(),
         ),
       ),
       body: Column(
@@ -49,7 +50,7 @@ class ExercisePage extends StatelessWidget {
                 final state = context.bloc<ChooseExerciseBloc>().state;
                 context.bloc<CreateWorkoutBloc>().add(
                     CreateWorkoutEvent.addedExerciseToList(state.userExercise));
-                Navigator.of(context).pop();
+                ExtendedNavigator.of(context).pop();
                 print('SUBMETIDO: ${state.userExercise}');
               },
             ),

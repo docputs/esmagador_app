@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
 class FilterPage extends StatelessWidget {
-  static const routeName = '/filter';
-  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text('Filter'),
       ),

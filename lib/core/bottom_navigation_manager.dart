@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
+import '../features/workout/presentation/workout_overview/bloc/workout_actor/workout_actor_bloc.dart';
+import '../features/workout/presentation/workout_overview/bloc/workout_overview_bloc.dart';
+import '../service_locator.dart';
 import 'constants.dart';
-import 'size_config.dart';
 import 'navigation_item.dart';
+import 'size_config.dart';
 
 class BottomNavigationManager extends StatelessWidget {
-  static const routeName = '/bottom-navigation-manager';
-
   @override
   Widget build(BuildContext context) {
     return Consumer<NavigationItemProvider>(
-      builder: (context, navigationItems, child) => Scaffold(
-        appBar: AppBar(),
-        body: navigationItems.items[navigationItems.selectedIndex].destination,
-        bottomNavigationBar: buildCustomBottomNavigationBar(navigationItems),
+      builder: (context, navigationItems, child) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => getIt<WorkoutActorBloc>(),
+          ),
+          BlocProvider(
+            create: (_) => getIt<WorkoutOverviewBloc>()
+              ..add(const WorkoutOverviewEvent.watchAllStarted()),
+          ),
+        ],
+        child: Scaffold(
+          appBar: AppBar(),
+          body:
+              navigationItems.items[navigationItems.selectedIndex].destination,
+          bottomNavigationBar: buildCustomBottomNavigationBar(navigationItems),
+        ),
       ),
     );
   }

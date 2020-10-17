@@ -9,6 +9,7 @@ part of 'sign_in_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$SignInEventTearOff {
   const _$SignInEventTearOff();
 
@@ -37,9 +38,11 @@ class _$SignInEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SignInEvent = _$SignInEventTearOff();
 
+/// @nodoc
 mixin _$SignInEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -73,12 +76,14 @@ mixin _$SignInEvent {
   });
 }
 
+/// @nodoc
 abstract class $SignInEventCopyWith<$Res> {
   factory $SignInEventCopyWith(
           SignInEvent value, $Res Function(SignInEvent) then) =
       _$SignInEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$SignInEventCopyWithImpl<$Res> implements $SignInEventCopyWith<$Res> {
   _$SignInEventCopyWithImpl(this._value, this._then);
 
@@ -87,6 +92,7 @@ class _$SignInEventCopyWithImpl<$Res> implements $SignInEventCopyWith<$Res> {
   final $Res Function(SignInEvent) _then;
 }
 
+/// @nodoc
 abstract class _$EmailChangedCopyWith<$Res> {
   factory _$EmailChangedCopyWith(
           _EmailChanged value, $Res Function(_EmailChanged) then) =
@@ -94,6 +100,7 @@ abstract class _$EmailChangedCopyWith<$Res> {
   $Res call({String email});
 }
 
+/// @nodoc
 class __$EmailChangedCopyWithImpl<$Res> extends _$SignInEventCopyWithImpl<$Res>
     implements _$EmailChangedCopyWith<$Res> {
   __$EmailChangedCopyWithImpl(
@@ -113,6 +120,7 @@ class __$EmailChangedCopyWithImpl<$Res> extends _$SignInEventCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_EmailChanged implements _EmailChanged {
   const _$_EmailChanged(this.email) : assert(email != null);
 
@@ -210,6 +218,7 @@ abstract class _EmailChanged implements SignInEvent {
   _$EmailChangedCopyWith<_EmailChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class _$PasswordChangedCopyWith<$Res> {
   factory _$PasswordChangedCopyWith(
           _PasswordChanged value, $Res Function(_PasswordChanged) then) =
@@ -217,6 +226,7 @@ abstract class _$PasswordChangedCopyWith<$Res> {
   $Res call({String password});
 }
 
+/// @nodoc
 class __$PasswordChangedCopyWithImpl<$Res>
     extends _$SignInEventCopyWithImpl<$Res>
     implements _$PasswordChangedCopyWith<$Res> {
@@ -237,6 +247,7 @@ class __$PasswordChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_PasswordChanged implements _PasswordChanged {
   const _$_PasswordChanged(this.password) : assert(password != null);
 
@@ -335,12 +346,14 @@ abstract class _PasswordChanged implements SignInEvent {
   _$PasswordChangedCopyWith<_PasswordChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class _$SignInPressedCopyWith<$Res> {
   factory _$SignInPressedCopyWith(
           _SignInPressed value, $Res Function(_SignInPressed) then) =
       __$SignInPressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$SignInPressedCopyWithImpl<$Res> extends _$SignInEventCopyWithImpl<$Res>
     implements _$SignInPressedCopyWith<$Res> {
   __$SignInPressedCopyWithImpl(
@@ -351,6 +364,7 @@ class __$SignInPressedCopyWithImpl<$Res> extends _$SignInEventCopyWithImpl<$Res>
   _SignInPressed get _value => super._value as _SignInPressed;
 }
 
+/// @nodoc
 class _$_SignInPressed implements _SignInPressed {
   const _$_SignInPressed();
 
@@ -434,12 +448,14 @@ abstract class _SignInPressed implements SignInEvent {
   const factory _SignInPressed() = _$_SignInPressed;
 }
 
+/// @nodoc
 abstract class _$SignInWithGooglePressedCopyWith<$Res> {
   factory _$SignInWithGooglePressedCopyWith(_SignInWithGooglePressed value,
           $Res Function(_SignInWithGooglePressed) then) =
       __$SignInWithGooglePressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$SignInWithGooglePressedCopyWithImpl<$Res>
     extends _$SignInEventCopyWithImpl<$Res>
     implements _$SignInWithGooglePressedCopyWith<$Res> {
@@ -452,6 +468,7 @@ class __$SignInWithGooglePressedCopyWithImpl<$Res>
       super._value as _SignInWithGooglePressed;
 }
 
+/// @nodoc
 class _$_SignInWithGooglePressed implements _SignInWithGooglePressed {
   const _$_SignInWithGooglePressed();
 
@@ -535,6 +552,7 @@ abstract class _SignInWithGooglePressed implements SignInEvent {
   const factory _SignInWithGooglePressed() = _$_SignInWithGooglePressed;
 }
 
+/// @nodoc
 class _$SignInStateTearOff {
   const _$SignInStateTearOff();
 
@@ -555,9 +573,11 @@ class _$SignInStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SignInState = _$SignInStateTearOff();
 
+/// @nodoc
 mixin _$SignInState {
   String get email;
   String get password;
@@ -568,6 +588,7 @@ mixin _$SignInState {
   $SignInStateCopyWith<SignInState> get copyWith;
 }
 
+/// @nodoc
 abstract class $SignInStateCopyWith<$Res> {
   factory $SignInStateCopyWith(
           SignInState value, $Res Function(SignInState) then) =
@@ -580,6 +601,7 @@ abstract class $SignInStateCopyWith<$Res> {
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
+/// @nodoc
 class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
   _$SignInStateCopyWithImpl(this._value, this._then);
 
@@ -610,6 +632,7 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SignInStateCopyWith<$Res>
     implements $SignInStateCopyWith<$Res> {
   factory _$SignInStateCopyWith(
@@ -624,6 +647,7 @@ abstract class _$SignInStateCopyWith<$Res>
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
+/// @nodoc
 class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
     implements _$SignInStateCopyWith<$Res> {
   __$SignInStateCopyWithImpl(
@@ -656,6 +680,7 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_SignInState implements _SignInState {
   const _$_SignInState(
       {@required this.email,

@@ -9,6 +9,7 @@ part of 'workout_failures.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$WorkoutFailureTearOff {
   const _$WorkoutFailureTearOff();
 
@@ -33,9 +34,11 @@ class _$WorkoutFailureTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $WorkoutFailure = _$WorkoutFailureTearOff();
 
+/// @nodoc
 mixin _$WorkoutFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -69,12 +72,14 @@ mixin _$WorkoutFailure {
   });
 }
 
+/// @nodoc
 abstract class $WorkoutFailureCopyWith<$Res> {
   factory $WorkoutFailureCopyWith(
           WorkoutFailure value, $Res Function(WorkoutFailure) then) =
       _$WorkoutFailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$WorkoutFailureCopyWithImpl<$Res>
     implements $WorkoutFailureCopyWith<$Res> {
   _$WorkoutFailureCopyWithImpl(this._value, this._then);
@@ -84,12 +89,14 @@ class _$WorkoutFailureCopyWithImpl<$Res>
   final $Res Function(WorkoutFailure) _then;
 }
 
+/// @nodoc
 abstract class _$CouldNotSaveCopyWith<$Res> {
   factory _$CouldNotSaveCopyWith(
           _CouldNotSave value, $Res Function(_CouldNotSave) then) =
       __$CouldNotSaveCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$CouldNotSaveCopyWithImpl<$Res>
     extends _$WorkoutFailureCopyWithImpl<$Res>
     implements _$CouldNotSaveCopyWith<$Res> {
@@ -101,6 +108,7 @@ class __$CouldNotSaveCopyWithImpl<$Res>
   _CouldNotSave get _value => super._value as _CouldNotSave;
 }
 
+/// @nodoc
 class _$_CouldNotSave implements _CouldNotSave {
   const _$_CouldNotSave();
 
@@ -184,12 +192,14 @@ abstract class _CouldNotSave implements WorkoutFailure {
   const factory _CouldNotSave() = _$_CouldNotSave;
 }
 
+/// @nodoc
 abstract class _$CouldNotDeleteCopyWith<$Res> {
   factory _$CouldNotDeleteCopyWith(
           _CouldNotDelete value, $Res Function(_CouldNotDelete) then) =
       __$CouldNotDeleteCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$CouldNotDeleteCopyWithImpl<$Res>
     extends _$WorkoutFailureCopyWithImpl<$Res>
     implements _$CouldNotDeleteCopyWith<$Res> {
@@ -201,6 +211,7 @@ class __$CouldNotDeleteCopyWithImpl<$Res>
   _CouldNotDelete get _value => super._value as _CouldNotDelete;
 }
 
+/// @nodoc
 class _$_CouldNotDelete implements _CouldNotDelete {
   const _$_CouldNotDelete();
 
@@ -284,12 +295,14 @@ abstract class _CouldNotDelete implements WorkoutFailure {
   const factory _CouldNotDelete() = _$_CouldNotDelete;
 }
 
+/// @nodoc
 abstract class _$CouldNotEditCopyWith<$Res> {
   factory _$CouldNotEditCopyWith(
           _CouldNotEdit value, $Res Function(_CouldNotEdit) then) =
       __$CouldNotEditCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$CouldNotEditCopyWithImpl<$Res>
     extends _$WorkoutFailureCopyWithImpl<$Res>
     implements _$CouldNotEditCopyWith<$Res> {
@@ -301,6 +314,7 @@ class __$CouldNotEditCopyWithImpl<$Res>
   _CouldNotEdit get _value => super._value as _CouldNotEdit;
 }
 
+/// @nodoc
 class _$_CouldNotEdit implements _CouldNotEdit {
   const _$_CouldNotEdit();
 
@@ -384,12 +398,14 @@ abstract class _CouldNotEdit implements WorkoutFailure {
   const factory _CouldNotEdit() = _$_CouldNotEdit;
 }
 
+/// @nodoc
 abstract class _$CouldNotFetchCopyWith<$Res> {
   factory _$CouldNotFetchCopyWith(
           _CouldNotFetch value, $Res Function(_CouldNotFetch) then) =
       __$CouldNotFetchCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$CouldNotFetchCopyWithImpl<$Res>
     extends _$WorkoutFailureCopyWithImpl<$Res>
     implements _$CouldNotFetchCopyWith<$Res> {
@@ -401,6 +417,7 @@ class __$CouldNotFetchCopyWithImpl<$Res>
   _CouldNotFetch get _value => super._value as _CouldNotFetch;
 }
 
+/// @nodoc
 class _$_CouldNotFetch implements _CouldNotFetch {
   const _$_CouldNotFetch();
 

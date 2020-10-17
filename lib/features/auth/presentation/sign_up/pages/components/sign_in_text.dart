@@ -1,8 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/constants.dart';
-import '../../../sign_in/pages/sign_in_page.dart';
+import '../../../../../../routes/router.gr.dart';
 
 class SignInText extends StatefulWidget {
   const SignInText({
@@ -21,7 +22,7 @@ class _SignInTextState extends State<SignInText> {
     super.initState();
     _tapGestureRecognizer = TapGestureRecognizer()
       ..onTap = () {
-        Navigator.of(context).pushReplacementNamed(SignInPage.routeName);
+        ExtendedNavigator.of(context).replace(Routes.signInPage);
       };
   }
 

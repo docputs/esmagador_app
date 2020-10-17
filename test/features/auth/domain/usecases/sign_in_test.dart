@@ -8,19 +8,19 @@ import 'package:mockito/mockito.dart';
 
 class MockUserRepository extends Mock implements UserRepository {}
 
-class MockEmailValidator extends Mock implements EmailValidator {}
+class MockValidators extends Mock implements Validators {}
 
 void main() {
   MockUserRepository mockUserRepository;
-  MockEmailValidator mockEmailValidator;
+  MockValidators mockValidators;
   SignIn usecase;
 
   setUp(() {
     mockUserRepository = MockUserRepository();
-    mockEmailValidator = MockEmailValidator();
+    mockValidators = MockValidators();
     usecase = SignIn(
       userRepository: mockUserRepository,
-      validator: mockEmailValidator,
+      validators: mockValidators,
     );
   });
 
@@ -29,7 +29,7 @@ void main() {
   final invalidEmail = 'teste@teste';
 
   test('should sign in when email is valid', () async {
-    when(mockEmailValidator.validateEmailAddress(any)).thenReturn(Right(email));
+    when(mockValidators.validateEmailAddress(any)).thenReturn(Right(email));
     when(mockUserRepository.signInWithEmailAndPassword(
             email: anyNamed('email'), password: anyNamed('password')))
         .thenAnswer((_) async => Right(unit));
@@ -42,7 +42,7 @@ void main() {
   });
 
   test('should return AuthFailure when email is invalid', () async {
-    when(mockEmailValidator.validateEmailAddress(any))
+    when(mockValidators.validateEmailAddress(any))
         .thenReturn(Left(AuthFailure.emailBadlyFormatted()));
 
     final result =

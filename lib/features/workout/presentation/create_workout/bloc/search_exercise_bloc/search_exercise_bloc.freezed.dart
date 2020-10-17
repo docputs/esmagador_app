@@ -9,6 +9,7 @@ part of 'search_exercise_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$SearchExerciseEventTearOff {
   const _$SearchExerciseEventTearOff();
 
@@ -20,9 +21,11 @@ class _$SearchExerciseEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SearchExerciseEvent = _$SearchExerciseEventTearOff();
 
+/// @nodoc
 mixin _$SearchExerciseEvent {
   String get text;
 
@@ -48,6 +51,7 @@ mixin _$SearchExerciseEvent {
   $SearchExerciseEventCopyWith<SearchExerciseEvent> get copyWith;
 }
 
+/// @nodoc
 abstract class $SearchExerciseEventCopyWith<$Res> {
   factory $SearchExerciseEventCopyWith(
           SearchExerciseEvent value, $Res Function(SearchExerciseEvent) then) =
@@ -55,6 +59,7 @@ abstract class $SearchExerciseEventCopyWith<$Res> {
   $Res call({String text});
 }
 
+/// @nodoc
 class _$SearchExerciseEventCopyWithImpl<$Res>
     implements $SearchExerciseEventCopyWith<$Res> {
   _$SearchExerciseEventCopyWithImpl(this._value, this._then);
@@ -73,6 +78,7 @@ class _$SearchExerciseEventCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$UserTypedCopyWith<$Res>
     implements $SearchExerciseEventCopyWith<$Res> {
   factory _$UserTypedCopyWith(
@@ -82,6 +88,7 @@ abstract class _$UserTypedCopyWith<$Res>
   $Res call({String text});
 }
 
+/// @nodoc
 class __$UserTypedCopyWithImpl<$Res>
     extends _$SearchExerciseEventCopyWithImpl<$Res>
     implements _$UserTypedCopyWith<$Res> {
@@ -101,6 +108,7 @@ class __$UserTypedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_UserTyped implements _UserTyped {
   const _$_UserTyped({@required this.text}) : assert(text != null);
 
@@ -182,6 +190,7 @@ abstract class _UserTyped implements SearchExerciseEvent {
   _$UserTypedCopyWith<_UserTyped> get copyWith;
 }
 
+/// @nodoc
 class _$SearchExerciseStateTearOff {
   const _$SearchExerciseStateTearOff();
 
@@ -193,15 +202,18 @@ class _$SearchExerciseStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SearchExerciseState = _$SearchExerciseStateTearOff();
 
+/// @nodoc
 mixin _$SearchExerciseState {
   List<Exercise> get exercises;
 
   $SearchExerciseStateCopyWith<SearchExerciseState> get copyWith;
 }
 
+/// @nodoc
 abstract class $SearchExerciseStateCopyWith<$Res> {
   factory $SearchExerciseStateCopyWith(
           SearchExerciseState value, $Res Function(SearchExerciseState) then) =
@@ -209,6 +221,7 @@ abstract class $SearchExerciseStateCopyWith<$Res> {
   $Res call({List<Exercise> exercises});
 }
 
+/// @nodoc
 class _$SearchExerciseStateCopyWithImpl<$Res>
     implements $SearchExerciseStateCopyWith<$Res> {
   _$SearchExerciseStateCopyWithImpl(this._value, this._then);
@@ -228,6 +241,7 @@ class _$SearchExerciseStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$SearchExerciseStateCopyWith<$Res>
     implements $SearchExerciseStateCopyWith<$Res> {
   factory _$SearchExerciseStateCopyWith(_SearchExerciseState value,
@@ -237,6 +251,7 @@ abstract class _$SearchExerciseStateCopyWith<$Res>
   $Res call({List<Exercise> exercises});
 }
 
+/// @nodoc
 class __$SearchExerciseStateCopyWithImpl<$Res>
     extends _$SearchExerciseStateCopyWithImpl<$Res>
     implements _$SearchExerciseStateCopyWith<$Res> {
@@ -258,6 +273,7 @@ class __$SearchExerciseStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_SearchExerciseState implements _SearchExerciseState {
   const _$_SearchExerciseState({@required this.exercises})
       : assert(exercises != null);

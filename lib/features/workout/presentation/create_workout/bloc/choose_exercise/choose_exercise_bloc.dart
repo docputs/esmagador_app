@@ -5,11 +5,13 @@ import 'package:esmagador/features/workout/domain/entities/exercise.dart';
 import 'package:esmagador/features/workout/domain/entities/user_exercise.dart';
 import 'package:esmagador/features/workout/presentation/create_workout/bloc/create_workout_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'choose_exercise_event.dart';
 part 'choose_exercise_state.dart';
 part 'choose_exercise_bloc.freezed.dart';
 
+@injectable
 class ChooseExerciseBloc
     extends Bloc<ChooseExerciseEvent, ChooseExerciseState> {
   final CreateWorkoutBloc createWorkoutBloc;

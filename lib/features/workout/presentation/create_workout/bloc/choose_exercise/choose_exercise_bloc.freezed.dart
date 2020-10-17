@@ -9,6 +9,7 @@ part of 'choose_exercise_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$ChooseExerciseEventTearOff {
   const _$ChooseExerciseEventTearOff();
 
@@ -54,9 +55,11 @@ class _$ChooseExerciseEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ChooseExerciseEvent = _$ChooseExerciseEventTearOff();
 
+/// @nodoc
 mixin _$ChooseExerciseEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -102,12 +105,14 @@ mixin _$ChooseExerciseEvent {
   });
 }
 
+/// @nodoc
 abstract class $ChooseExerciseEventCopyWith<$Res> {
   factory $ChooseExerciseEventCopyWith(
           ChooseExerciseEvent value, $Res Function(ChooseExerciseEvent) then) =
       _$ChooseExerciseEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$ChooseExerciseEventCopyWithImpl<$Res>
     implements $ChooseExerciseEventCopyWith<$Res> {
   _$ChooseExerciseEventCopyWithImpl(this._value, this._then);
@@ -117,6 +122,7 @@ class _$ChooseExerciseEventCopyWithImpl<$Res>
   final $Res Function(ChooseExerciseEvent) _then;
 }
 
+/// @nodoc
 abstract class _$HasChosenExerciseCopyWith<$Res> {
   factory _$HasChosenExerciseCopyWith(
           _HasChosenExercise value, $Res Function(_HasChosenExercise) then) =
@@ -124,6 +130,7 @@ abstract class _$HasChosenExerciseCopyWith<$Res> {
   $Res call({Exercise exercise});
 }
 
+/// @nodoc
 class __$HasChosenExerciseCopyWithImpl<$Res>
     extends _$ChooseExerciseEventCopyWithImpl<$Res>
     implements _$HasChosenExerciseCopyWith<$Res> {
@@ -144,6 +151,7 @@ class __$HasChosenExerciseCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_HasChosenExercise implements _HasChosenExercise {
   const _$_HasChosenExercise({@required this.exercise})
       : assert(exercise != null);
@@ -262,12 +270,14 @@ abstract class _HasChosenExercise implements ChooseExerciseEvent {
   _$HasChosenExerciseCopyWith<_HasChosenExercise> get copyWith;
 }
 
+/// @nodoc
 abstract class _$IncrementedSetsCopyWith<$Res> {
   factory _$IncrementedSetsCopyWith(
           _IncrementedSets value, $Res Function(_IncrementedSets) then) =
       __$IncrementedSetsCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$IncrementedSetsCopyWithImpl<$Res>
     extends _$ChooseExerciseEventCopyWithImpl<$Res>
     implements _$IncrementedSetsCopyWith<$Res> {
@@ -279,6 +289,7 @@ class __$IncrementedSetsCopyWithImpl<$Res>
   _IncrementedSets get _value => super._value as _IncrementedSets;
 }
 
+/// @nodoc
 class _$_IncrementedSets implements _IncrementedSets {
   const _$_IncrementedSets();
 
@@ -380,12 +391,14 @@ abstract class _IncrementedSets implements ChooseExerciseEvent {
   const factory _IncrementedSets() = _$_IncrementedSets;
 }
 
+/// @nodoc
 abstract class _$DecrementedSetsCopyWith<$Res> {
   factory _$DecrementedSetsCopyWith(
           _DecrementedSets value, $Res Function(_DecrementedSets) then) =
       __$DecrementedSetsCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$DecrementedSetsCopyWithImpl<$Res>
     extends _$ChooseExerciseEventCopyWithImpl<$Res>
     implements _$DecrementedSetsCopyWith<$Res> {
@@ -397,6 +410,7 @@ class __$DecrementedSetsCopyWithImpl<$Res>
   _DecrementedSets get _value => super._value as _DecrementedSets;
 }
 
+/// @nodoc
 class _$_DecrementedSets implements _DecrementedSets {
   const _$_DecrementedSets();
 
@@ -498,6 +512,7 @@ abstract class _DecrementedSets implements ChooseExerciseEvent {
   const factory _DecrementedSets() = _$_DecrementedSets;
 }
 
+/// @nodoc
 abstract class _$ChangedMaximumRepsCopyWith<$Res> {
   factory _$ChangedMaximumRepsCopyWith(
           _ChangedMaximumReps value, $Res Function(_ChangedMaximumReps) then) =
@@ -505,6 +520,7 @@ abstract class _$ChangedMaximumRepsCopyWith<$Res> {
   $Res call({int value});
 }
 
+/// @nodoc
 class __$ChangedMaximumRepsCopyWithImpl<$Res>
     extends _$ChooseExerciseEventCopyWithImpl<$Res>
     implements _$ChangedMaximumRepsCopyWith<$Res> {
@@ -525,6 +541,7 @@ class __$ChangedMaximumRepsCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_ChangedMaximumReps implements _ChangedMaximumReps {
   const _$_ChangedMaximumReps({@required this.value}) : assert(value != null);
 
@@ -641,6 +658,7 @@ abstract class _ChangedMaximumReps implements ChooseExerciseEvent {
   _$ChangedMaximumRepsCopyWith<_ChangedMaximumReps> get copyWith;
 }
 
+/// @nodoc
 abstract class _$ChangedMinimumRepsCopyWith<$Res> {
   factory _$ChangedMinimumRepsCopyWith(
           _ChangedMinimumReps value, $Res Function(_ChangedMinimumReps) then) =
@@ -648,6 +666,7 @@ abstract class _$ChangedMinimumRepsCopyWith<$Res> {
   $Res call({int value});
 }
 
+/// @nodoc
 class __$ChangedMinimumRepsCopyWithImpl<$Res>
     extends _$ChooseExerciseEventCopyWithImpl<$Res>
     implements _$ChangedMinimumRepsCopyWith<$Res> {
@@ -668,6 +687,7 @@ class __$ChangedMinimumRepsCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_ChangedMinimumReps implements _ChangedMinimumReps {
   const _$_ChangedMinimumReps({@required this.value}) : assert(value != null);
 
@@ -784,12 +804,14 @@ abstract class _ChangedMinimumReps implements ChooseExerciseEvent {
   _$ChangedMinimumRepsCopyWith<_ChangedMinimumReps> get copyWith;
 }
 
+/// @nodoc
 abstract class _$SubmittedExerciseCopyWith<$Res> {
   factory _$SubmittedExerciseCopyWith(
           _SubmittedExercise value, $Res Function(_SubmittedExercise) then) =
       __$SubmittedExerciseCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$SubmittedExerciseCopyWithImpl<$Res>
     extends _$ChooseExerciseEventCopyWithImpl<$Res>
     implements _$SubmittedExerciseCopyWith<$Res> {
@@ -801,6 +823,7 @@ class __$SubmittedExerciseCopyWithImpl<$Res>
   _SubmittedExercise get _value => super._value as _SubmittedExercise;
 }
 
+/// @nodoc
 class _$_SubmittedExercise implements _SubmittedExercise {
   const _$_SubmittedExercise();
 
@@ -902,12 +925,14 @@ abstract class _SubmittedExercise implements ChooseExerciseEvent {
   const factory _SubmittedExercise() = _$_SubmittedExercise;
 }
 
+/// @nodoc
 abstract class _$CancelledByUserCopyWith<$Res> {
   factory _$CancelledByUserCopyWith(
           _CancelledByUser value, $Res Function(_CancelledByUser) then) =
       __$CancelledByUserCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$CancelledByUserCopyWithImpl<$Res>
     extends _$ChooseExerciseEventCopyWithImpl<$Res>
     implements _$CancelledByUserCopyWith<$Res> {
@@ -919,6 +944,7 @@ class __$CancelledByUserCopyWithImpl<$Res>
   _CancelledByUser get _value => super._value as _CancelledByUser;
 }
 
+/// @nodoc
 class _$_CancelledByUser implements _CancelledByUser {
   const _$_CancelledByUser();
 
@@ -1020,6 +1046,7 @@ abstract class _CancelledByUser implements ChooseExerciseEvent {
   const factory _CancelledByUser() = _$_CancelledByUser;
 }
 
+/// @nodoc
 class _$ChooseExerciseStateTearOff {
   const _$ChooseExerciseStateTearOff();
 
@@ -1031,15 +1058,18 @@ class _$ChooseExerciseStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ChooseExerciseState = _$ChooseExerciseStateTearOff();
 
+/// @nodoc
 mixin _$ChooseExerciseState {
   UserExercise get userExercise;
 
   $ChooseExerciseStateCopyWith<ChooseExerciseState> get copyWith;
 }
 
+/// @nodoc
 abstract class $ChooseExerciseStateCopyWith<$Res> {
   factory $ChooseExerciseStateCopyWith(
           ChooseExerciseState value, $Res Function(ChooseExerciseState) then) =
@@ -1047,6 +1077,7 @@ abstract class $ChooseExerciseStateCopyWith<$Res> {
   $Res call({UserExercise userExercise});
 }
 
+/// @nodoc
 class _$ChooseExerciseStateCopyWithImpl<$Res>
     implements $ChooseExerciseStateCopyWith<$Res> {
   _$ChooseExerciseStateCopyWithImpl(this._value, this._then);
@@ -1067,6 +1098,7 @@ class _$ChooseExerciseStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$ChooseExerciseStateCopyWith<$Res>
     implements $ChooseExerciseStateCopyWith<$Res> {
   factory _$ChooseExerciseStateCopyWith(_ChooseExerciseState value,
@@ -1076,6 +1108,7 @@ abstract class _$ChooseExerciseStateCopyWith<$Res>
   $Res call({UserExercise userExercise});
 }
 
+/// @nodoc
 class __$ChooseExerciseStateCopyWithImpl<$Res>
     extends _$ChooseExerciseStateCopyWithImpl<$Res>
     implements _$ChooseExerciseStateCopyWith<$Res> {
@@ -1098,6 +1131,7 @@ class __$ChooseExerciseStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_ChooseExerciseState implements _ChooseExerciseState {
   const _$_ChooseExerciseState({@required this.userExercise})
       : assert(userExercise != null);

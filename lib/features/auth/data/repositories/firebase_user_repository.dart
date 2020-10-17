@@ -2,32 +2,20 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../core/errors/auth_failure.dart';
 import '../../core/util/firebase_user_mapper.dart';
 import '../../domain/entities/user_model.dart';
 import '../../domain/repositories/user_repository.dart';
 
+@LazySingleton(as: UserRepository)
 class FirebaseUserRepository implements UserRepository {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
 
-  const FirebaseUserRepository(this._firebaseAuth, this._googleSignIn);
-
-  @override
-  Future<Either<AuthFailure, Unit>> changeDisplayName() {
-    // TODO: implement changeDisplayName
-  }
-
-  @override
-  Future<Either<AuthFailure, Unit>> changeEmail() {
-    // TODO: implement changeEmail
-  }
-
-  @override
-  Future<Either<AuthFailure, Unit>> changePassword() {
-    // TODO: implement changePassword
-  }
+  const FirebaseUserRepository(this._firebaseAuth, this._googleSignIn)
+      : assert(_firebaseAuth != null, _googleSignIn != null);
 
   @override
   Future<Either<AuthFailure, Unit>> createAccount({

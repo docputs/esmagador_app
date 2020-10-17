@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class LocalDataSource {
@@ -5,6 +6,7 @@ abstract class LocalDataSource {
   Future<void> cacheWalkthrough();
 }
 
+@LazySingleton(as: LocalDataSource)
 class SharedLocalDataSource implements LocalDataSource {
   final SharedPreferences _sharedPreferences;
 

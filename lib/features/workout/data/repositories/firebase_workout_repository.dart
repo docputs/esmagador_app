@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../auth/domain/repositories/user_repository.dart';
@@ -9,6 +10,7 @@ import '../../domain/entities/workout.dart';
 import '../../domain/repositories/workout_repository.dart';
 import '../models/workout_model.dart';
 
+@LazySingleton(as: WorkoutRepository)
 class FirebaseWorkoutRepository implements WorkoutRepository {
   final FirebaseFirestore firestore;
   final UserRepository userRepository;
@@ -36,9 +38,25 @@ class FirebaseWorkoutRepository implements WorkoutRepository {
   }
 
   @override
-  Future<Either<WorkoutFailure, Unit>> deleteWorkout(String id) {
-    // TODO: implement deleteWorkout
-    throw UnimplementedError();
+  Future<Either<WorkoutFailure, Unit>> deleteWorkout(Workout workout) async {
+    final userOption = await userRepository.getCurrentUser();
+    return userOption.fold(
+      () {
+        return left(const WorkoutFailure.couldNotDelete());
+      },
+      (user) async {
+        try {
+          await firestore
+              .collection('users/${user.id}/workouts')
+              .doc(workout.id)
+              .delete();
+          return right(unit);
+        } catch (e) {
+          print(e);
+          return left(const WorkoutFailure.couldNotDelete());
+        }
+      },
+    );
   }
 
   @override

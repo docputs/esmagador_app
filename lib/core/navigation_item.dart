@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-import '../features/profile/presentation/profile_screen.dart';
-import '../features/search/presentation/search_screen.dart';
-import '../features/statistics/presentation/statistics_screen.dart';
-import '../features/workout/presentation/workout_overview/pages/workout_page.dart';
+import '../features/profile/presentation/pages/profile_page.dart';
+import '../features/search/presentation/search_page.dart';
+import '../features/statistics/presentation/statistics_page.dart';
+import '../features/workout/presentation/workout_overview/pages/workout_overview_page.dart';
 
 class NavigationItem {
   final int id;
@@ -30,17 +30,17 @@ class NavigationItemProvider with ChangeNotifier {
     NavigationItem(
       id: 2,
       icon: FeatherIcons.search,
-      destination: SearchScreen(),
+      destination: SearchPage(),
     ),
     NavigationItem(
       id: 3,
       icon: FeatherIcons.barChart2,
-      destination: StatisticsScreen(),
+      destination: StatisticsPage(),
     ),
     NavigationItem(
       id: 4,
       icon: FeatherIcons.user,
-      destination: ProfileScreen(),
+      destination: ProfilePage(),
     ),
   ];
 

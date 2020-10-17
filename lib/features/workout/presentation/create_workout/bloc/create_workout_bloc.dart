@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../core/errors/workout_failures.dart';
@@ -14,6 +15,7 @@ part 'create_workout_bloc.freezed.dart';
 part 'create_workout_event.dart';
 part 'create_workout_state.dart';
 
+@injectable
 class CreateWorkoutBloc extends Bloc<CreateWorkoutEvent, CreateWorkoutState> {
   final SaveWorkout saveWorkout;
 
@@ -25,13 +27,22 @@ class CreateWorkoutBloc extends Bloc<CreateWorkoutEvent, CreateWorkoutState> {
   ) async* {
     yield* event.map(
       titleSubmitted: (e) async* {
-        yield state.copyWith(title: e.title);
+        yield state.copyWith(
+          title: e.title,
+          saveSuccessOrFailureOption: none(),
+        );
       },
       routineSubmitted: (e) async* {
-        yield state.copyWith(daysOfWeek: e.daysOfWeek);
+        yield state.copyWith(
+          daysOfWeek: e.daysOfWeek,
+          saveSuccessOrFailureOption: none(),
+        );
       },
       exercisesSubmitted: (e) async* {
-        yield state.copyWith(isSubmitting: true);
+        yield state.copyWith(
+          isSubmitting: true,
+          saveSuccessOrFailureOption: none(),
+        );
 
         final saveSuccessOrFailure = await saveWorkout(Workout(
           id: Uuid().v1(),
@@ -49,12 +60,18 @@ class CreateWorkoutBloc extends Bloc<CreateWorkoutEvent, CreateWorkoutState> {
       addedExerciseToList: (e) async* {
         final newList = [...state.exercises];
         newList.add(e.exercise);
-        yield state.copyWith(exercises: newList);
+        yield state.copyWith(
+          exercises: newList,
+          saveSuccessOrFailureOption: none(),
+        );
       },
       removedExerciseFromList: (e) async* {
         final newList = [...state.exercises];
         newList.remove(e.exercise);
-        yield state.copyWith(exercises: newList);
+        yield state.copyWith(
+          exercises: newList,
+          saveSuccessOrFailureOption: none(),
+        );
       },
     );
   }

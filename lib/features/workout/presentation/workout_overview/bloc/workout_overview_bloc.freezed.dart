@@ -9,6 +9,7 @@ part of 'workout_overview_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$WorkoutOverviewEventTearOff {
   const _$WorkoutOverviewEventTearOff();
 
@@ -18,9 +19,11 @@ class _$WorkoutOverviewEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $WorkoutOverviewEvent = _$WorkoutOverviewEventTearOff();
 
+/// @nodoc
 mixin _$WorkoutOverviewEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -42,12 +45,14 @@ mixin _$WorkoutOverviewEvent {
   });
 }
 
+/// @nodoc
 abstract class $WorkoutOverviewEventCopyWith<$Res> {
   factory $WorkoutOverviewEventCopyWith(WorkoutOverviewEvent value,
           $Res Function(WorkoutOverviewEvent) then) =
       _$WorkoutOverviewEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$WorkoutOverviewEventCopyWithImpl<$Res>
     implements $WorkoutOverviewEventCopyWith<$Res> {
   _$WorkoutOverviewEventCopyWithImpl(this._value, this._then);
@@ -57,12 +62,14 @@ class _$WorkoutOverviewEventCopyWithImpl<$Res>
   final $Res Function(WorkoutOverviewEvent) _then;
 }
 
+/// @nodoc
 abstract class _$WatchAllStartedCopyWith<$Res> {
   factory _$WatchAllStartedCopyWith(
           _WatchAllStarted value, $Res Function(_WatchAllStarted) then) =
       __$WatchAllStartedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$WatchAllStartedCopyWithImpl<$Res>
     extends _$WorkoutOverviewEventCopyWithImpl<$Res>
     implements _$WatchAllStartedCopyWith<$Res> {
@@ -74,6 +81,7 @@ class __$WatchAllStartedCopyWithImpl<$Res>
   _WatchAllStarted get _value => super._value as _WatchAllStarted;
 }
 
+/// @nodoc
 class _$_WatchAllStarted implements _WatchAllStarted {
   const _$_WatchAllStarted();
 
@@ -139,17 +147,23 @@ abstract class _WatchAllStarted implements WorkoutOverviewEvent {
   const factory _WatchAllStarted() = _$_WatchAllStarted;
 }
 
+/// @nodoc
 class _$WorkoutOverviewStateTearOff {
   const _$WorkoutOverviewStateTearOff();
 
 // ignore: unused_element
   _Initial initial() {
-    return _Initial();
+    return const _Initial();
   }
 
 // ignore: unused_element
-  _Success success({@required List<Workout> workouts}) {
-    return _Success(
+  _Loading loading() {
+    return const _Loading();
+  }
+
+// ignore: unused_element
+  Success success({@required List<Workout> workouts}) {
+    return Success(
       workouts: workouts,
     );
   }
@@ -160,19 +174,23 @@ class _$WorkoutOverviewStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $WorkoutOverviewState = _$WorkoutOverviewStateTearOff();
 
+/// @nodoc
 mixin _$WorkoutOverviewState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result success(List<Workout> workouts),
     @required Result error(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result success(List<Workout> workouts),
     Result error(),
     @required Result orElse(),
@@ -180,24 +198,28 @@ mixin _$WorkoutOverviewState {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result success(_Success value),
+    @required Result loading(_Loading value),
+    @required Result success(Success value),
     @required Result error(_Error value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result success(_Success value),
+    Result loading(_Loading value),
+    Result success(Success value),
     Result error(_Error value),
     @required Result orElse(),
   });
 }
 
+/// @nodoc
 abstract class $WorkoutOverviewStateCopyWith<$Res> {
   factory $WorkoutOverviewStateCopyWith(WorkoutOverviewState value,
           $Res Function(WorkoutOverviewState) then) =
       _$WorkoutOverviewStateCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$WorkoutOverviewStateCopyWithImpl<$Res>
     implements $WorkoutOverviewStateCopyWith<$Res> {
   _$WorkoutOverviewStateCopyWithImpl(this._value, this._then);
@@ -207,11 +229,13 @@ class _$WorkoutOverviewStateCopyWithImpl<$Res>
   final $Res Function(WorkoutOverviewState) _then;
 }
 
+/// @nodoc
 abstract class _$InitialCopyWith<$Res> {
   factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
       __$InitialCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$InitialCopyWithImpl<$Res>
     extends _$WorkoutOverviewStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
@@ -222,8 +246,9 @@ class __$InitialCopyWithImpl<$Res>
   _Initial get _value => super._value as _Initial;
 }
 
+/// @nodoc
 class _$_Initial implements _Initial {
-  _$_Initial();
+  const _$_Initial();
 
   @override
   String toString() {
@@ -242,10 +267,12 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result success(List<Workout> workouts),
     @required Result error(),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(success != null);
     assert(error != null);
     return initial();
@@ -255,6 +282,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result success(List<Workout> workouts),
     Result error(),
     @required Result orElse(),
@@ -270,10 +298,12 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result success(_Success value),
+    @required Result loading(_Loading value),
+    @required Result success(Success value),
     @required Result error(_Error value),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(success != null);
     assert(error != null);
     return initial(this);
@@ -283,7 +313,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result success(_Success value),
+    Result loading(_Loading value),
+    Result success(Success value),
     Result error(_Error value),
     @required Result orElse(),
   }) {
@@ -296,37 +327,141 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements WorkoutOverviewState {
-  factory _Initial() = _$_Initial;
+  const factory _Initial() = _$_Initial;
 }
 
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+/// @nodoc
+abstract class _$LoadingCopyWith<$Res> {
+  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
+      __$LoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoadingCopyWithImpl<$Res>
+    extends _$WorkoutOverviewStateCopyWithImpl<$Res>
+    implements _$LoadingCopyWith<$Res> {
+  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
+      : super(_value, (v) => _then(v as _Loading));
+
+  @override
+  _Loading get _value => super._value as _Loading;
+}
+
+/// @nodoc
+class _$_Loading implements _Loading {
+  const _$_Loading();
+
+  @override
+  String toString() {
+    return 'WorkoutOverviewState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Loading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result success(List<Workout> workouts),
+    @required Result error(),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(success != null);
+    assert(error != null);
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result success(List<Workout> workouts),
+    Result error(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
+    @required Result success(Success value),
+    @required Result error(_Error value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(success != null);
+    assert(error != null);
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_Initial value),
+    Result loading(_Loading value),
+    Result success(Success value),
+    Result error(_Error value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements WorkoutOverviewState {
+  const factory _Loading() = _$_Loading;
+}
+
+/// @nodoc
+abstract class $SuccessCopyWith<$Res> {
+  factory $SuccessCopyWith(Success value, $Res Function(Success) then) =
+      _$SuccessCopyWithImpl<$Res>;
   $Res call({List<Workout> workouts});
 }
 
-class __$SuccessCopyWithImpl<$Res>
+/// @nodoc
+class _$SuccessCopyWithImpl<$Res>
     extends _$WorkoutOverviewStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+    implements $SuccessCopyWith<$Res> {
+  _$SuccessCopyWithImpl(Success _value, $Res Function(Success) _then)
+      : super(_value, (v) => _then(v as Success));
 
   @override
-  _Success get _value => super._value as _Success;
+  Success get _value => super._value as Success;
 
   @override
   $Res call({
     Object workouts = freezed,
   }) {
-    return _then(_Success(
+    return _then(Success(
       workouts:
           workouts == freezed ? _value.workouts : workouts as List<Workout>,
     ));
   }
 }
 
-class _$_Success implements _Success {
-  const _$_Success({@required this.workouts}) : assert(workouts != null);
+/// @nodoc
+class _$Success implements Success {
+  const _$Success({@required this.workouts}) : assert(workouts != null);
 
   @override
   final List<Workout> workouts;
@@ -339,7 +474,7 @@ class _$_Success implements _Success {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Success &&
+        (other is Success &&
             (identical(other.workouts, workouts) ||
                 const DeepCollectionEquality()
                     .equals(other.workouts, workouts)));
@@ -350,17 +485,19 @@ class _$_Success implements _Success {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(workouts);
 
   @override
-  _$SuccessCopyWith<_Success> get copyWith =>
-      __$SuccessCopyWithImpl<_Success>(this, _$identity);
+  $SuccessCopyWith<Success> get copyWith =>
+      _$SuccessCopyWithImpl<Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result success(List<Workout> workouts),
     @required Result error(),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(success != null);
     assert(error != null);
     return success(workouts);
@@ -370,6 +507,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result success(List<Workout> workouts),
     Result error(),
     @required Result orElse(),
@@ -385,10 +523,12 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result success(_Success value),
+    @required Result loading(_Loading value),
+    @required Result success(Success value),
     @required Result error(_Error value),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(success != null);
     assert(error != null);
     return success(this);
@@ -398,7 +538,8 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result success(_Success value),
+    Result loading(_Loading value),
+    Result success(Success value),
     Result error(_Error value),
     @required Result orElse(),
   }) {
@@ -410,18 +551,20 @@ class _$_Success implements _Success {
   }
 }
 
-abstract class _Success implements WorkoutOverviewState {
-  const factory _Success({@required List<Workout> workouts}) = _$_Success;
+abstract class Success implements WorkoutOverviewState {
+  const factory Success({@required List<Workout> workouts}) = _$Success;
 
   List<Workout> get workouts;
-  _$SuccessCopyWith<_Success> get copyWith;
+  $SuccessCopyWith<Success> get copyWith;
 }
 
+/// @nodoc
 abstract class _$ErrorCopyWith<$Res> {
   factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
       __$ErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$ErrorCopyWithImpl<$Res>
     extends _$WorkoutOverviewStateCopyWithImpl<$Res>
     implements _$ErrorCopyWith<$Res> {
@@ -432,6 +575,7 @@ class __$ErrorCopyWithImpl<$Res>
   _Error get _value => super._value as _Error;
 }
 
+/// @nodoc
 class _$_Error implements _Error {
   const _$_Error();
 
@@ -452,10 +596,12 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result success(List<Workout> workouts),
     @required Result error(),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(success != null);
     assert(error != null);
     return error();
@@ -465,6 +611,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result success(List<Workout> workouts),
     Result error(),
     @required Result orElse(),
@@ -480,10 +627,12 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result success(_Success value),
+    @required Result loading(_Loading value),
+    @required Result success(Success value),
     @required Result error(_Error value),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(success != null);
     assert(error != null);
     return error(this);
@@ -493,7 +642,8 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result success(_Success value),
+    Result loading(_Loading value),
+    Result success(Success value),
     Result error(_Error value),
     @required Result orElse(),
   }) {

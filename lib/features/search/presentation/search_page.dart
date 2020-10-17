@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SearchScreen extends StatelessWidget {
-  static const routeName = '/search';
-
+class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('Search'),
     );
   }

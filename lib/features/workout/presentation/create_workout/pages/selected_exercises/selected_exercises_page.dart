@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -5,8 +6,6 @@ import '../components/custom_header.dart';
 import 'components/selected_exercises_list.dart';
 
 class SelectedExercisesPage extends StatelessWidget {
-  static const routeName = '/selected-exercises';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +15,7 @@ class SelectedExercisesPage extends StatelessWidget {
             FeatherIcons.arrowLeft,
             color: Colors.black,
           ),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => ExtendedNavigator.of(context).pop(),
         ),
       ),
       body: Padding(
@@ -34,4 +33,3 @@ class SelectedExercisesPage extends StatelessWidget {
     );
   }
 }
-

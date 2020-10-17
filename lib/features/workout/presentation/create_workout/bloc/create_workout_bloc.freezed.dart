@@ -9,6 +9,7 @@ part of 'create_workout_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$CreateWorkoutEventTearOff {
   const _$CreateWorkoutEventTearOff();
 
@@ -46,9 +47,11 @@ class _$CreateWorkoutEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $CreateWorkoutEvent = _$CreateWorkoutEventTearOff();
 
+/// @nodoc
 mixin _$CreateWorkoutEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -86,12 +89,14 @@ mixin _$CreateWorkoutEvent {
   });
 }
 
+/// @nodoc
 abstract class $CreateWorkoutEventCopyWith<$Res> {
   factory $CreateWorkoutEventCopyWith(
           CreateWorkoutEvent value, $Res Function(CreateWorkoutEvent) then) =
       _$CreateWorkoutEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$CreateWorkoutEventCopyWithImpl<$Res>
     implements $CreateWorkoutEventCopyWith<$Res> {
   _$CreateWorkoutEventCopyWithImpl(this._value, this._then);
@@ -101,6 +106,7 @@ class _$CreateWorkoutEventCopyWithImpl<$Res>
   final $Res Function(CreateWorkoutEvent) _then;
 }
 
+/// @nodoc
 abstract class _$TitleSubmittedCopyWith<$Res> {
   factory _$TitleSubmittedCopyWith(
           _TitleSubmitted value, $Res Function(_TitleSubmitted) then) =
@@ -108,6 +114,7 @@ abstract class _$TitleSubmittedCopyWith<$Res> {
   $Res call({String title});
 }
 
+/// @nodoc
 class __$TitleSubmittedCopyWithImpl<$Res>
     extends _$CreateWorkoutEventCopyWithImpl<$Res>
     implements _$TitleSubmittedCopyWith<$Res> {
@@ -128,6 +135,7 @@ class __$TitleSubmittedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_TitleSubmitted implements _TitleSubmitted {
   const _$_TitleSubmitted(this.title) : assert(title != null);
 
@@ -231,6 +239,7 @@ abstract class _TitleSubmitted implements CreateWorkoutEvent {
   _$TitleSubmittedCopyWith<_TitleSubmitted> get copyWith;
 }
 
+/// @nodoc
 abstract class _$RoutineSubmittedCopyWith<$Res> {
   factory _$RoutineSubmittedCopyWith(
           _RoutineSubmitted value, $Res Function(_RoutineSubmitted) then) =
@@ -238,6 +247,7 @@ abstract class _$RoutineSubmittedCopyWith<$Res> {
   $Res call({List<int> daysOfWeek});
 }
 
+/// @nodoc
 class __$RoutineSubmittedCopyWithImpl<$Res>
     extends _$CreateWorkoutEventCopyWithImpl<$Res>
     implements _$RoutineSubmittedCopyWith<$Res> {
@@ -258,6 +268,7 @@ class __$RoutineSubmittedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_RoutineSubmitted implements _RoutineSubmitted {
   const _$_RoutineSubmitted(this.daysOfWeek) : assert(daysOfWeek != null);
 
@@ -362,12 +373,14 @@ abstract class _RoutineSubmitted implements CreateWorkoutEvent {
   _$RoutineSubmittedCopyWith<_RoutineSubmitted> get copyWith;
 }
 
+/// @nodoc
 abstract class _$ExercisesSubmittedCopyWith<$Res> {
   factory _$ExercisesSubmittedCopyWith(
           _ExercisesSubmitted value, $Res Function(_ExercisesSubmitted) then) =
       __$ExercisesSubmittedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$ExercisesSubmittedCopyWithImpl<$Res>
     extends _$CreateWorkoutEventCopyWithImpl<$Res>
     implements _$ExercisesSubmittedCopyWith<$Res> {
@@ -379,6 +392,7 @@ class __$ExercisesSubmittedCopyWithImpl<$Res>
   _ExercisesSubmitted get _value => super._value as _ExercisesSubmitted;
 }
 
+/// @nodoc
 class _$_ExercisesSubmitted implements _ExercisesSubmitted {
   const _$_ExercisesSubmitted();
 
@@ -468,6 +482,7 @@ abstract class _ExercisesSubmitted implements CreateWorkoutEvent {
   const factory _ExercisesSubmitted() = _$_ExercisesSubmitted;
 }
 
+/// @nodoc
 abstract class _$AddedExerciseToListCopyWith<$Res> {
   factory _$AddedExerciseToListCopyWith(_AddedExerciseToList value,
           $Res Function(_AddedExerciseToList) then) =
@@ -475,6 +490,7 @@ abstract class _$AddedExerciseToListCopyWith<$Res> {
   $Res call({UserExercise exercise});
 }
 
+/// @nodoc
 class __$AddedExerciseToListCopyWithImpl<$Res>
     extends _$CreateWorkoutEventCopyWithImpl<$Res>
     implements _$AddedExerciseToListCopyWith<$Res> {
@@ -495,6 +511,7 @@ class __$AddedExerciseToListCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_AddedExerciseToList implements _AddedExerciseToList {
   const _$_AddedExerciseToList(this.exercise) : assert(exercise != null);
 
@@ -601,6 +618,7 @@ abstract class _AddedExerciseToList implements CreateWorkoutEvent {
   _$AddedExerciseToListCopyWith<_AddedExerciseToList> get copyWith;
 }
 
+/// @nodoc
 abstract class _$RemovedExerciseFromListCopyWith<$Res> {
   factory _$RemovedExerciseFromListCopyWith(_RemovedExerciseFromList value,
           $Res Function(_RemovedExerciseFromList) then) =
@@ -608,6 +626,7 @@ abstract class _$RemovedExerciseFromListCopyWith<$Res> {
   $Res call({UserExercise exercise});
 }
 
+/// @nodoc
 class __$RemovedExerciseFromListCopyWithImpl<$Res>
     extends _$CreateWorkoutEventCopyWithImpl<$Res>
     implements _$RemovedExerciseFromListCopyWith<$Res> {
@@ -629,6 +648,7 @@ class __$RemovedExerciseFromListCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_RemovedExerciseFromList implements _RemovedExerciseFromList {
   const _$_RemovedExerciseFromList(this.exercise) : assert(exercise != null);
 
@@ -735,6 +755,7 @@ abstract class _RemovedExerciseFromList implements CreateWorkoutEvent {
   _$RemovedExerciseFromListCopyWith<_RemovedExerciseFromList> get copyWith;
 }
 
+/// @nodoc
 class _$CreateWorkoutStateTearOff {
   const _$CreateWorkoutStateTearOff();
 
@@ -760,9 +781,11 @@ class _$CreateWorkoutStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $CreateWorkoutState = _$CreateWorkoutStateTearOff();
 
+/// @nodoc
 mixin _$CreateWorkoutState {
   String get title;
   List<int> get daysOfWeek;
@@ -773,6 +796,7 @@ mixin _$CreateWorkoutState {
   $CreateWorkoutStateCopyWith<CreateWorkoutState> get copyWith;
 }
 
+/// @nodoc
 abstract class $CreateWorkoutStateCopyWith<$Res> {
   factory $CreateWorkoutStateCopyWith(
           CreateWorkoutState value, $Res Function(CreateWorkoutState) then) =
@@ -785,6 +809,7 @@ abstract class $CreateWorkoutStateCopyWith<$Res> {
       Option<Either<WorkoutFailure, Unit>> saveSuccessOrFailureOption});
 }
 
+/// @nodoc
 class _$CreateWorkoutStateCopyWithImpl<$Res>
     implements $CreateWorkoutStateCopyWith<$Res> {
   _$CreateWorkoutStateCopyWithImpl(this._value, this._then);
@@ -817,6 +842,7 @@ class _$CreateWorkoutStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$CreateWorkoutStateCopyWith<$Res>
     implements $CreateWorkoutStateCopyWith<$Res> {
   factory _$CreateWorkoutStateCopyWith(
@@ -831,6 +857,7 @@ abstract class _$CreateWorkoutStateCopyWith<$Res>
       Option<Either<WorkoutFailure, Unit>> saveSuccessOrFailureOption});
 }
 
+/// @nodoc
 class __$CreateWorkoutStateCopyWithImpl<$Res>
     extends _$CreateWorkoutStateCopyWithImpl<$Res>
     implements _$CreateWorkoutStateCopyWith<$Res> {
@@ -865,6 +892,7 @@ class __$CreateWorkoutStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_CreateWorkoutState implements _CreateWorkoutState {
   const _$_CreateWorkoutState(
       {@required this.title,

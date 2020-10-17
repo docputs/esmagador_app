@@ -1,10 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/bottom_navigation_manager.dart';
 import '../../../../../../core/constants.dart';
 import '../../../../../../core/default_button.dart';
-import '../../../../../../injection_container.dart';
+import '../../../../../../routes/router.gr.dart';
+import '../../../../../../service_locator.dart';
 import '../../../../core/util/validators.dart';
 import '../../../auth_bloc.dart';
 import '../../bloc/sign_in_bloc.dart';
@@ -47,8 +48,8 @@ class _SignInFormState extends State<SignInForm> {
               ),
             ),
             (_) {
-              Navigator.of(context)
-                  .pushReplacementNamed(BottomNavigationManager.routeName);
+              ExtendedNavigator.of(context)
+                  .replace(Routes.bottomNavigationManager);
               context.bloc<AuthBloc>().add(AuthEvent.authCheckRequested());
             },
           ),
@@ -91,14 +92,15 @@ class _SignInFormState extends State<SignInForm> {
         hintText: 'E-mail',
         border: OutlineInputBorder(borderRadius: kBorderRadius),
       ),
-      validator: (value) => sl<Validators>().validateEmailAddress(value).fold(
-            (f) => f.maybeMap(
-              orElse: () => null,
-              emptyField: (_) => 'Campo obrigatório',
-              emailBadlyFormatted: (_) => 'Email inválido',
-            ),
-            (_) => null,
-          ),
+      validator: (value) =>
+          getIt<Validators>().validateEmailAddress(value).fold(
+                (f) => f.maybeMap(
+                  orElse: () => null,
+                  emptyField: (_) => 'Campo obrigatório',
+                  emailBadlyFormatted: (_) => 'Email inválido',
+                ),
+                (_) => null,
+              ),
       onChanged: (value) {
         context.bloc<SignInBloc>().add(SignInEvent.emailChanged(value));
       },

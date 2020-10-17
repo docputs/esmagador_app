@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-class StatisticsScreen extends StatelessWidget {
-  static const routeName = '/statistics';
-
+class StatisticsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('Statistics'),
     );
   }

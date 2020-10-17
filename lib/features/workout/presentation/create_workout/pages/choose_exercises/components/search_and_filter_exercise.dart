@@ -1,13 +1,15 @@
-import 'package:esmagador/features/workout/presentation/create_workout/bloc/search_exercise_bloc/search_exercise_bloc.dart';
-import 'package:esmagador/features/workout/presentation/create_workout/pages/filter/filter_page.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+
+import '../../../../../../../routes/router.gr.dart';
+import '../../../bloc/search_exercise_bloc/search_exercise_bloc.dart';
 
 class SearchAndFilterExercise extends StatelessWidget {
-  const SearchAndFilterExercise({
-    Key key,
-  }) : super(key: key);
+  final TextEditingController _controller;
+
+  const SearchAndFilterExercise(this._controller);
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,8 @@ class SearchAndFilterExercise extends StatelessWidget {
         children: [
           Expanded(
             child: TextField(
+              controller: _controller,
+              textInputAction: TextInputAction.search,
               autocorrect: false,
               onChanged: (value) {
                 context
@@ -29,7 +33,7 @@ class SearchAndFilterExercise extends StatelessWidget {
                 suffixIcon: IconButton(
                   icon: Icon(FeatherIcons.filter),
                   onPressed: () {
-                    Navigator.of(context).pushNamed(FilterPage.routeName);
+                    ExtendedNavigator.of(context).push(Routes.filterPage);
                   },
                 ),
               ),

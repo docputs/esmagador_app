@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/exercise.dart';
 import '../../workout_fixtures.dart';
@@ -10,6 +11,7 @@ part 'search_exercise_bloc.freezed.dart';
 part 'search_exercise_event.dart';
 part 'search_exercise_state.dart';
 
+@injectable
 class SearchExerciseBloc
     extends Bloc<SearchExerciseEvent, SearchExerciseState> {
   SearchExerciseBloc() : super(SearchExerciseState.empty());
